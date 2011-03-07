@@ -1,0 +1,180 @@
+2010-11-15:
+ - R/odg.r: deleted
+ - R/zzz.r: .package.banner moved from R/odg.r
+
+2010-09-29:
+ - R/which.class.R: Changed is.cat and is.cont to be based on S4 Methods. This 
+   could have been done with S3, however the whole package uses S4.
+
+
+2010-08-24 
+ + R/odg.R: added
+ - R/zzz.R: simplified 
+
+2010-08-24 Version 1.1.0
+ - Now dependent on oeprator.tools-1.1.0
+ - R/is.one.sided.R: is.two.sided is fixed
+ - R/lhs.R: 
+ - R/rhs.R:
+ - R/op.R:
+   - fun( expression ) now returns an expression
+   - replacement handles multiple values for replacing on expressions.
+
+2010-07-25
+ - inst/: removed as it was empty
+
+2010-07-16
+ - Added dependency to operator.tools package
+ - R/rhs.vars: uses operators() and tests for any operator
+ - no longer dependent on the hash package :(
+
+
+2010-06-15
+  Refactor into operators, expressions and formulas
+
+  The operator functionality of 'formula.tools' has been moved to 
+  operators-0.1-7 and later.  The API has also changed. Previously,
+  you would ask for relational.operators, not it is a function . . .
+  operators( type="relational" )
+  
+  - R/operators.R: deleted - is in the operators package.
+  - R/operators.Rd: deleted - is in the operators package.
+  - R/terms.R: change to use operators() from operators package.
+  - R/not.in.R: deleted - exists in operators packages.
+  - R/op.R: modified, now only contains formula methods
+
+
+  
+2010-06-05
+  This refactor effort is designed to make formula.tools more generic
+  and robust. Previous releases focused only on relational operators. This 
+  release looks at operators in general.  
+
+  - R/zzz.R: removed ASCII ART logo
+  - R/operators.R: 
+    + .operators: list to be the of R operators by type.
+    + operators: function to return a char vector of operator names, 
+      includes the look-up of special operators, i.e. %xyz%.
+    + expanded operators to include arithmetic, colon(range), colons,
+      logical and assignment
+    + Submitted R Bug 14310, unrecognized primitives -> ->>, see note in code
+
+  - R/is.one.sided.R 
+    + .is.one.sided: correctly identifies that ! is a one-sided function
+
+  - R/is.operator.R: added function to determine if argument is an operator
+
+  - R/as.operator.R: added. functions to coerce to operators.
+
+  - Wrote to Romain Francois about accepting the operator
+  
+
+2010-05-02  
+  - R/op.type.R, R/invert.R :
+    + Changes sense that op returns that operator as a name and not a 
+      character. This breaks backward comparability.  Also since 
+      hash-2.0.0 does less coercion on look-ups, we have to explicitly 
+      add as.character when working with the hash objects.
+
+
+2010-02-23 Version 0.20  (Many thanks to Hadley Wickham for comments for this release )
+  - R/zzz.R
+    + Only displays the ODG logo.
+  - R/lhs.R
+    + correctly NULL for one-sided formula ~ a
+  - R/rhs.R
+    + correctly return rhs for one-sided formula. (
+  - R/is.one.sided.R: added
+    + is.one.sided: method added
+    + is.two.sided: method added
+  - man/is.one.sided.R: added
+  - R/op.R
+    + op,name-method: returns NULL3
+    + op-method: now returns the operator and is not coerced to character
+    
+
+  Hadley Wickham wrote:
+    Hi Christopher,
+    
+    formula.tools looks a like a really useful package, however there are
+    a couple of things that are a little frustrating at the moment:
+    
+    Firstly, the start up message is a bit much, especially when the hash
+    package is loaded too:
+    
+    > library(formula.tools)
+    Loading required package: hash
+    
+    The  hash  package provided by:
+                               _       _
+     ___  _ __   ___ _ __   __| | __ _| |_ __ _
+     / _ \| '_ \ / _ \ '_ \ / _` |/ _' | __/ _' |
+    | (_) | |_) |  __/ | | | (_| | (_| | || (_| |
+     \___/| .__/ \___|_| |_|\__,_|\__,_|\__\__,_|
+         |_|       http://www.opendatagroup.com
+    
+    
+    The  formula.tools  package provided by:
+                               _       _
+     ___  _ __   ___ _ __   __| | __ _| |_ __ _
+     / _ \| '_ \ / _ \ '_ \ / _` |/ _' | __/ _' |
+    | (_) | |_) |  __/ | | | (_| | (_| | || (_| |
+     \___/| .__/ \___|_| |_|\__,_|\__,_|\__\__,_|
+         |_|       http://www.opendatagroup.com
+    
+    >
+    
+    
+    Secondly, your methods don't seem to return correct results for
+    one-sided formulas:
+    
+    > f <- ~ a
+    > lhs(f)
+    a
+    > rhs(f)
+    Error in x[[3]] : subscript out of bounds
+    > op(f)
+    [1] "~"
+    
+    Finally, it would be nice to have a "has_op" or "is_op" method or
+    something similar:
+    
+    f <- a ~ b + c
+    has_op(lhs(f)) # FALSE
+    has_op(rhs(f)) # TRUE
+    
+    or alternatively make op return something useful when it's not
+    actually an operator:
+    
+    > op(rhs(f))
+    [1] "+"
+    > op(lhs(f))
+    Error in function (classes, fdef, mtable)          
+     unable to find an inherited method for function "op", for signature "name"
+    
+    
+    Regards,
+    
+    Hadley
+
+
+2009-11-28 Version 0.14.1 (cbrown)
+  + Documentation fixes for release on CRAN
+  
+2009-11-12 Version 0.13.0 (cbrown)
+  + Added documentation
+  + Added sysdat.rda contain objects op.types and relational.inverses
+  - inst/extdata: removed
+  - test/Examples: removed 
+  + R/inverse.operators.r and R/op.types.r moved to scripts
+  + R/invert.op.R renamed to invert
+  + man/invert.op-methods.Rd renamed to invert-methods.Rd
+  
+
+2009-11-03 (cbrown)
+  + Added inverse.op method
+
+2009-11-01 Version 0.11.0 (cbrown)
+First Complete Version
+
+

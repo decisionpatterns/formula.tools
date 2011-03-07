@@ -1,0 +1,19 @@
+
+- lhs, rhs, op of expression should return an expression and not a list for 
+  expression objects. Or should be a name or ...  
+- rel.type, op.type should return a character list.
+
+- Divide into operators package, expressions package
+- Rename to formulas package
+- Change is.operator
+
+- Implement add.operator function
+
+- implement over custom operators. 
+  ? testing for %.+% on the first element
+  ? test for name 
+
+x R/op.R
+  + should return the op and not as.character(op)
+
+- 

@@ -1,0 +1,6 @@
+S3Method( terms, call )
+S3Method( terms, expression )
+# importFrom("hash", "invert")
+importFrom("utils", "installed.packages" )
+exportPattern("^[^\\.]")
+
