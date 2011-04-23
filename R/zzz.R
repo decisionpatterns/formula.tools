@@ -1,20 +1,14 @@
-.pack.banner <- function(pkgname) {
 
-  cat(
+# .First.lib <- function( libname, pkgname ) {
+.onAttach <- function( libname, pkgname ) {
+
+  packageStartupMessage( 
     pkgname ,
     "-" ,
-    installed.packages()[ pkgname , "Version"],
-    " provided by Decision Patterns.\n\n" ,
-    sep = ""
+    utils::installed.packages()[ pkgname , "Version"],
+    " provided by Decision Patterns\n" ,
+    domain = NA
   )
 
 }
-
-.onLoad <- function( libname, pkgname ) {
-
-  # .odg.logo() 
-  .pack.banner( pkgname )
-  
-}
-
 

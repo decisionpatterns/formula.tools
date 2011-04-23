@@ -11,8 +11,8 @@
 setGeneric( 'is.cat', function(x, ...) standardGeneric( 'is.cat' ) )
 
 setMethod( 'is.cat', 'character', function(x) TRUE )
-setMethod( 'is.cat', 'factor', function(x) TRUE )
-setMethod( 'is.cat', 'logical', function(x) TRUE )
+setMethod( 'is.cat', 'factor',    function(x) TRUE )
+setMethod( 'is.cat', 'logical',   function(x) TRUE )
 
 setMethod( 'is.cat', 'ANY', function(x) FALSE ) 
 

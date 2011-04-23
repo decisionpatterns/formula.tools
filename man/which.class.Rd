@@ -31,8 +31,8 @@
 }
 
 \usage{
-    is.cat(x, classes = c('character', 'factor', 'logical') )
-    is.cont( x, classes = c( 'numeric', 'integer', 'Date' ) )
+    is.cat(x, ...)
+    is.cont(x, ...)
 
     which.cat(x, ..., names = FALSE )
     which.cont(x, ..., names = FALSE )
@@ -40,8 +40,6 @@
 
 \arguments{
   \item{x}{ an object such as a vector or data.frame }
-
-  \item{classes}{ a character vector of class names }
 
   \item{names}{ logical.  Whether to return names or indices }
 
