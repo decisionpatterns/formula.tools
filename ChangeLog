@@ -1,14 +1,16 @@
-2010-11-15:
- - R/odg.r: deleted
- - R/zzz.r: .package.banner moved from R/odg.r
+2010-06-16 Version 1.2.1
+[Modified]
+- Fixed problem with NAMESPACE file
+
+
+2010-03
+ - Change maintainer info
 
 2010-09-29:
  - R/which.class.R: Changed is.cat and is.cont to be based on S4 Methods. This 
    could have been done with S3, however the whole package uses S4.
 
-
 2010-08-24 
- + R/odg.R: added
  - R/zzz.R: simplified 
 
 2010-08-24 Version 1.1.0
