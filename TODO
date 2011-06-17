@@ -1,4 +1,7 @@
-- rel.type, op.type should return a character list.
+
+- Do these belong in vector.tools package?
+  - R/which.class
+  - test/is-cat.R
 
 - expression.tools package(?)
 

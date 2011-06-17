@@ -5,7 +5,7 @@
 #   expressions, names and formulas.
 #   
 #   This method is similar to all.vars except it will expand '.' and other
-#   special characters in the for
+#   special characters in model formula
 #   
 #   Returns the variables in order of appearance
 # -----------------------------------------------------------------------------
@@ -48,18 +48,8 @@ setMethod( 'get.vars', c( 'call', 'ANY' ),
   function( x, data=NULL, ... ) {
 
     term <- terms( x, data=data, ... )
-    term
+    return(term)
   
-#     # vars <- attr( term, 'variables' )
-#     
-#     nms <- as.character(vars)
-# 
-#     if ( length(nms)  > 0 ) {
-#       return( nms[-1] )
-#     } else {
-#       return( NULL )
-#     }
-
   }
 )
 
