@@ -7,6 +7,7 @@
 \alias{lhs,expression-method}
 \alias{lhs,formula-method}
 \alias{lhs,list-method}
+\alias{lhs,<--method}
 \alias{lhs}
 
 \alias{lhs.vars}
@@ -27,6 +28,7 @@
 \alias{rhs,expression-method}
 \alias{rhs,formula-method}
 \alias{rhs,list-method}     
+\alias{rhs,<--method}
 \alias{rhs}
 
 \alias{rhs.vars}
@@ -48,6 +50,7 @@
 \alias{op,formula-method}
 \alias{op,list-method}
 \alias{op,name-method}
+\alias{op,<--method}
 \alias{op}
 
 \alias{op<--methods}
@@ -63,6 +66,7 @@
 \alias{op.type,expression-method}
 \alias{op.type,formula-method}
 \alias{op.type,list-method}
+\alias{op.type,<--method}
 \alias{op.type}
 
 
