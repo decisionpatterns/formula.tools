@@ -16,6 +16,8 @@ setGeneric( 'lhs', function(x, ...) standardGeneric( 'lhs' ) )
 
 setMethod( 'lhs', 'call', .lhs.singular ) 
 setMethod( 'lhs', 'formula', .lhs.singular )  
+setMethod( 'lhs', '<-', function(x) x[[2]] )
+
 
 
 # -------------------------------------

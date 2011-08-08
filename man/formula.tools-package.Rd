@@ -17,8 +17,8 @@
 \tabular{ll}{
     Package: \tab formtools\cr
     Type: \tab Package\cr
-    Version: \tab 1.2.1\cr
-    Date: \tab 2011-06-16\cr
+    Version: \tab 1.2.2\cr
+    Date: \tab 2011-08-08\cr
     License: \tab GPL(>=2)\cr
     LazyLoad: \tab yes\cr
   }
@@ -31,7 +31,6 @@
 }
 
 \keyword{ package }
-
 
 \examples{
   e <- expression( A > 5, B == 10, C + D >= E )

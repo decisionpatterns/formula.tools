@@ -19,7 +19,7 @@ setGeneric( 'rhs', function(x, ...) standardGeneric( 'rhs' ) )
  
 setMethod( 'rhs', 'call', .rhs.singular ) 
 setMethod( 'rhs', 'formula', .rhs.singular )
-
+setMethod( 'rhs', '<-', function(x) x[[3]] )
 
 # -------------------------------------
 # PLURAL    

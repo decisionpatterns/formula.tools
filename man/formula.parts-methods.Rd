@@ -194,6 +194,16 @@
   op(c)
   op.type(c)
 
+  # ASSIGNMENT 
+  a <- quote( A <- B ) 
+  lhs(a)
+  rhs(a) 
+  op(a)
+  op.type(a) 
+
+
+
+
 }
 
 \keyword{methods}

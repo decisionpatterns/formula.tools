@@ -1,3 +1,13 @@
+2010-08-08 Version 1.2.2
+
+[Modified]
+Added methods lhs, rhs, op, op.type for '<-' assignment class.  Previosly it 
+did not handle this and produced an error. 
+
+* n.b. statements with '->' return '<-' 
+
+
+
 2010-06-16 Version 1.2.1
 [Modified]
 - Fixed problem with NAMESPACE file

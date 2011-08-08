@@ -22,6 +22,7 @@ setMethod( 'op', 'expression',
 
 
 setMethod( 'op', 'list', function(x) lapply(x,op) )
+setMethod( 'op', '<-', function(x) x[[1]] ) 
 
 # -----------------------------------------------------------------------------
 # REPLACEMENT : OP<-
