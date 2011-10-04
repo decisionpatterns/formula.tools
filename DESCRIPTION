@@ -1,8 +1,8 @@
 Package: formula.tools
 Type: Package
 Title: Utilities for working with formulas, expressions, calls and other R objects
-Version: 1.2.2
-Date: 2011-08-08
+Version: 1.3.0
+Date: 2011-10-03
 Author: Christopher Brown 
 Maintainer: Christopher Brown <chris.brown@decisionpatterns.com>
 Description: This package provides a number of useful utilities for working with formulas, expressions, calls, names, symbols and other R objects.  This package was designed to greatly facilitate symbolic manupulation using native R objects.

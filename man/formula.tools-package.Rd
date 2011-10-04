@@ -17,8 +17,8 @@
 \tabular{ll}{
     Package: \tab formtools\cr
     Type: \tab Package\cr
-    Version: \tab 1.2.2\cr
-    Date: \tab 2011-08-08\cr
+    Version: \tab 1.3.0\cr
+    Date: \tab 2011-10-03\cr
     License: \tab GPL(>=2)\cr
     LazyLoad: \tab yes\cr
   }
