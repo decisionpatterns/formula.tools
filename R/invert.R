@@ -18,7 +18,7 @@ if( ! isGeneric( 'invert' ) ) {
 
     o <- as.character(op(x)) 
     
-    if ( o %in% operators( type="relational" ) ) {
+    if ( o %in% operators( types="relational" ) ) {
       op(x) <- as.name( .Options$operators[[o]][['inverse']] )
     } else  {
       warning( "No inverse found for op:", op(x) )    

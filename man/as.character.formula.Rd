@@ -1,10 +1,11 @@
 \name{as.character.formula}
 
+
 \alias{as.character.formula}
 \alias{as.character}
 
 \title{
-  Converts a formula to character representation 
+  Converts   a formula to character representation 
 }
 
 \description{
@@ -13,7 +14,7 @@
 }
 
 \usage{
-as.character.formula(x, ...)
+\method{as.character}{formula}(x, ...)
 }
 \arguments{
   \item{x}{ A formula object. }

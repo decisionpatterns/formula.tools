@@ -1,1 +1,4 @@
-^.git
+^\.Rproj\.user$
+^.git.*
+^.gitignore
+.*\.RProj.*
