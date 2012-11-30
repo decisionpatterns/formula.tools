@@ -17,8 +17,8 @@
 \tabular{ll}{
     Package: \tab formtools\cr
     Type: \tab Package\cr
-    Version: \tab 1.3.0\cr
-    Date: \tab 2011-10-03\cr
+    Version: \tab 1.3.1\cr
+    Date: \tab 2012-11-30\cr
     License: \tab GPL(>=2)\cr
     LazyLoad: \tab yes\cr
   }
@@ -26,7 +26,7 @@
 
 \author{
   Christopher Brown  
-  Maintainer: Christopher Brown <cbrown@decisionpatterns.com>
+  Maintainer: Christopher Brown <chris.brown@decisionpatterns.com>
   http://www.decisionpatterns.com
 }
 
