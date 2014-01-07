@@ -1,4 +1,10 @@
 
+- Create methods for append for signatures:
+  - expression, expression
+  - call, call
+  - expression, call
+  - call, expression
+
 - Do these belong in vector.tools package?
   - R/which.class
   - test/is-cat.R
