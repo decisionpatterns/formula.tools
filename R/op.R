@@ -38,8 +38,8 @@ setMethod( 'op', 'expression',
 #' @aliases op,list-method
 setMethod( 'op', 'list', function(x) lapply(x,op) )
 
-#' @rdname formula.parts
-#' @aliases op,<--method
+# @rdname formula.parts
+# @aliases op,<--method
 setMethod( 'op', '<-', function(x) x[[1]] ) 
 
 # -----------------------------------------------------------------------------

@@ -31,8 +31,8 @@ setMethod( 'rhs', 'call', .rhs.singular )
 #' @aliases rhs,formula-method
 setMethod( 'rhs', 'formula', .rhs.singular )
 
-#' @rdname formula.parts
-#' @aliases lhs,<--method
+# @rdname formula.parts
+# @aliases lhs,<--method
 setMethod( 'rhs', '<-', function(x) x[[3]] )
 
 # -------------------------------------

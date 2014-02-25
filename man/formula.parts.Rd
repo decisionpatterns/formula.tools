@@ -1,5 +1,5 @@
 \docType{methods}
-\name{formula.terms-methods}
+\name{formula.parts-methods}
 \alias{.lhs.singular}
 \alias{.replace.lhs.plural}
 \alias{.replace.lhs.singular}
@@ -8,10 +8,9 @@
 \alias{.replace.rhs.singular}
 \alias{.replace.ths.plural}
 \alias{.rhs.singular}
-\alias{formula.terms-methods}
+\alias{formula.parts-methods}
 \alias{lhs}
 \alias{lhs,}
-\alias{lhs,<--method}
 \alias{lhs,call-method}
 \alias{lhs,expression-method}
 \alias{lhs,formula-method}
@@ -22,7 +21,6 @@
 \alias{lhs<-,formula,ANY-method}
 \alias{lhs<-,list-method}
 \alias{op}
-\alias{op,<--method}
 \alias{op,call-method}
 \alias{op,expression-method}
 \alias{op,formula-method}
@@ -34,7 +32,6 @@
 \alias{op<-,formula-method}
 \alias{op<-,list-method}
 \alias{rhs}
-\alias{rhs,<--method}
 \alias{rhs,call-method}
 \alias{rhs,call-methods}
 \alias{rhs,expresion-method}
@@ -55,8 +52,6 @@ lhs(x, ...)
 \S4method{lhs}{call}(x)
 
 \S4method{lhs}{formula}(x)
-
-\S4method{lhs}{<-}(x)
 
 \S4method{lhs}{expression}(x, ...)
 
@@ -80,8 +75,6 @@ op(x)
 
 \S4method{op}{list}(x)
 
-\S4method{op}{<-}(x)
-
 op(x) <- value
 
 .replace.op.plural(x, value)
@@ -93,8 +86,6 @@ rhs(x, ...)
 \S4method{rhs}{call}(x)
 
 \S4method{rhs}{formula}(x)
-
-\S4method{rhs}{<-}(x)
 
 \S4method{rhs}{expression}(x, ...)
 
@@ -159,7 +150,7 @@ expression, etc.
 }
 \examples{
 # FORMULA
- f <- A + B ~ C + D
+  f <- A + B ~ C + D
   lhs(f)
   lhs(f) <- quote( E / F )
 

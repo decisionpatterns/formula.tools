@@ -48,7 +48,7 @@ which.cat(x, ..., names = FALSE)
 which.cont(x, ..., names = FALSE)
 }
 \arguments{
-  \item{x}{}
+  \item{x}{object}
 
   \item{names}{logical; whether to return the names of the
   variables instead of their index}

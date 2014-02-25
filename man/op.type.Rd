@@ -27,8 +27,6 @@ a character vector of the operator type(s)
 \description{
 Get the operator type used in an call, formula, expression,
 etc.
-
-#
 }
 \seealso{
 \code{\link{op}},

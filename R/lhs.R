@@ -42,7 +42,9 @@ setMethod( 'lhs', 'call', .lhs.singular )
 #' @aliases lhs,formula-method
 setMethod( 'lhs', 'formula', .lhs.singular )  
 
-#' @rdname formula.parts
+# @rdname formula.parts
+# @aliases lhs,assignment-method
+# @name lhs-assign
 setMethod( 'lhs', '<-', function(x) x[[2]] )
 
 

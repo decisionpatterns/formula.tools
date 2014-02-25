@@ -33,8 +33,8 @@ setMethod( 'op.type', 'call' , function(x) operator.type( (op(x) )  ) )
 #' @aliases op.type,formula-method
 setMethod( 'op.type', 'formula' , function(x) operator.type( op(x) ) )
 
-#' @rdname op.type
-#' @aliases op.type,"<-"-method
+# @rdname op.type
+# @aliases op.type,<-`method
 setMethod( 'op.type', '<-', function(x) operator.type( op(x) ) ) 
 
 

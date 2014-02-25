@@ -44,7 +44,7 @@
 #' @examples 
 #' 
 #'   # FORMULA
-#'  f <- A + B ~ C + D
+#'   f <- A + B ~ C + D
 #'   lhs(f)
 #'   lhs(f) <- quote( E / F )
 #'
@@ -85,7 +85,7 @@
 #'   op(a)
 #'   op.type(a) 
 #'
-#' @name formula.terms-methods
+#' @name formula.parts-methods
 #' @rdname formula.parts
 #' @docType methods
 

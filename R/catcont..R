@@ -3,7 +3,7 @@
 #' These functions facilitate working with variables as categorical or continous
 #' rather than logical, integer, numeric, factor, character, .. 
 #' 
-#' @param x 
+#' @param x object
 #' @param names logical; whether to return the names of the variables instead of
 #' their index
 #' @param ... arguments passed to other functions
