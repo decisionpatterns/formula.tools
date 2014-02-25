@@ -1,5 +1,7 @@
 \docType{methods}
 \name{get.vars}
+\alias{.lhs.vars}
+\alias{.rhs.vars}
 \alias{get.vars}
 \alias{get.vars,ANY,ANY-method}
 \alias{get.vars,ANY,ANY-methods}
@@ -7,6 +9,14 @@
 \alias{get.vars,expression,missing-method}
 \alias{get.vars,formula,ANY-method}
 \alias{get.vars,name,ANY-method}
+\alias{lhs.vars}
+\alias{lhs.vars,call-method}
+\alias{lhs.vars,expression-method}
+\alias{lhs.vars,formula-method}
+\alias{rhs.vars}
+\alias{rhs.vars,call-method}
+\alias{rhs.vars,expression-method}
+\alias{rhs.vars,formula-method}
 \title{Get variable (names) from various R objects}
 \usage{
 get.vars(x, data = NULL, ...)
@@ -20,12 +30,42 @@ get.vars(x, data = NULL, ...)
 \S4method{get.vars}{name,ANY}(x, data, ...)
 
 \S4method{get.vars}{ANY,ANY}(x, data, ...)
+
+lhs.vars(x, ...)
+
+.lhs.vars(x, ..., data = NULL)
+
+\S4method{lhs.vars}{formula}(x, ..., data = NULL)
+
+\S4method{lhs.vars}{call}(x, ..., data = NULL)
+
+\S4method{lhs.vars}{expression}(x, ...)
+
+rhs.vars(x, ...)
+
+.rhs.vars(x, ..., data = NULL)
+
+\S4method{rhs.vars}{formula}(x, ..., data = NULL)
+
+\S4method{rhs.vars}{call}(x, ..., data = NULL)
+
+\S4method{rhs.vars}{expression}(x, ...)
 }
 \arguments{
   \item{x}{object to extract vars from.}
 
   \item{data}{data set/list or environment on which the
   names are defined}
+
+  \item{...}{arguments passed to subsequent functions
+
+  \code{get.vars} and variant get the variables from
+  objects optionally interpreting on \code{.} on the data.
+  This is useful, for example, when you wish to know what
+  data is used based on a given formula.
+
+  Methods/functions beginning with \code{.} are not
+  exported}
 }
 \value{
 character vector of variables names
