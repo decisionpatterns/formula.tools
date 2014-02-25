@@ -2,11 +2,28 @@
 # lhs
 #   extract and manipulate the left-hand side of R objects.
 # -----------------------------------------------------------------------------
+
+ 
+#' Get/set left- or right- hand side of a formula, call, expression, etc.
+#' 
+
+#' @return the left- or right- hand side of \code{x}
+#'
+#' @examples
+#'   #' -tk
+#' @name lhs
+#' @rdname formula.parts
+#' @docType methods
+#' @export
+
 setGeneric( 'lhs', function(x, ...) standardGeneric( 'lhs' ) )
 
 # -------------------------------------
 # SINGULAR
 # -------------------------------------
+
+#' @rdname formula.parts
+#' @aliases .lhs.singular
 .lhs.singular <- 
   function(x) 
     if( is.two.sided(x) ) x[[2]] else 
@@ -14,8 +31,18 @@ setGeneric( 'lhs', function(x, ...) standardGeneric( 'lhs' ) )
         warning( "Could not extract lhs of ", x ) 
 
 
+#' @rdname formula.parts
+#' @aliases lhs,
+ 
+#' @rdname formula.parts
+#' @aliases lhs,call-method
 setMethod( 'lhs', 'call', .lhs.singular ) 
+
+#' @rdname formula.parts
+#' @aliases lhs,formula-method
 setMethod( 'lhs', 'formula', .lhs.singular )  
+
+#' @rdname formula.parts
 setMethod( 'lhs', '<-', function(x) x[[2]] )
 
 
@@ -25,6 +52,10 @@ setMethod( 'lhs', '<-', function(x) x[[2]] )
 #   Since the 
 # -------------------------------------
 # setMethod(  'lhs', 'expression', function(x, ... ) lapply( x, lhs, ... ) )
+
+#' @rdname formula.parts
+#' @aliases lhs,expression-method
+
 setMethod(  'lhs', 'expression', 
   function(x, ... ) {
     ret <- vector( "expression", length(x) )
@@ -36,6 +67,8 @@ setMethod(  'lhs', 'expression',
   }
 )
 
+#' @rdname formula.parts
+#' @aliases lhs,list-method
 setMethod(  'lhs', 'list', function(x, ...) lapply( x, lhs, ... ) )
 
 
@@ -43,57 +76,80 @@ setMethod(  'lhs', 'list', function(x, ...) lapply( x, lhs, ... ) )
 # -----------------------------------------------------------------------------
 # REPLACEMENT : lhs<-
 # -----------------------------------------------------------------------------
-setGeneric( 'lhs<-', function(this,value) standardGeneric('lhs<-') )
+#' @rdname formula.parts
+#' @aliases lhs<-
+#' @export  
+setGeneric( 'lhs<-', function( x, value ) standardGeneric('lhs<-') )
 
 
 # -------------------------------------
 # SINGLULAR: call, formula
 # -------------------------------------
-.replace.lhs.singular <-  function(this,value) {
-    this[[2]] <- value 
-    this 
+
+#' @rdname formula.parts
+#' @aliases .replace.lhs.singular
+
+.replace.lhs.singular <-  function(x,value) {
+    x[[2]] <- value 
+    x 
 }
 
-setReplaceMethod( 'lhs', 'call' , .replace.lhs.singular )
-setReplaceMethod( 'lhs', 'formula' , .replace.lhs.singular )
+#' @rdname formula.parts
+#' @name lhs<-
+#' @aliases lhs<-,call,ANY-method
+setReplaceMethod( 'lhs', c('call','ANY'), .replace.lhs.singular )
+
+#' @name lhs<-
+#' @rdname formula.parts
+#' @aliases lhs<-,formula,ANY-method
+setReplaceMethod( 'lhs', c('formula','ANY') , .replace.lhs.singular )
+
+
 
 
 # -------------------------------------
 # LIST AND VECTORS: expression, list
 # -------------------------------------
-# .replace.lhs.plural <- function( this, value ) {
+# .replace.lhs.plural <- function( x, value ) {
 # 
 #     if( length(value) == 1 ) {
-#       for( i in 1:length(this) ) lhs( this[[i]] ) <- value 
+#       for( i in 1:length(x) ) lhs( x[[i]] ) <- value 
 #     } else {  
-#       if( length(this) != length(value) ) 
+#       if( length(x) != length(value) ) 
 #         stop( "Cannot change the lhs.  Arguments have different lengths" )
 # 
-#       for( i in 1:length(this) ) lhs(this[[i]] ) <- value[[i]]
+#       for( i in 1:length(x) ) lhs(x[[i]] ) <- value[[i]]
 #     }
 # 
-#     this
+#     x
 # }        
 
-.replace.lhs.plural <- function( this, value ) { 
+
+#' @rdname formula.parts
+#' @aliases .replace.lhs.plural
+
+.replace.lhs.plural <- function( x, value ) { 
 
   if( length(value) == 1 ) { 
-    for( i in 1:length(this) ) lhs( this[[i]] ) <- value 
+    for( i in 1:length(x) ) lhs( x[[i]] ) <- value 
  
-  } else if( length(this) == length(value) ) {
-    for( i in 1:length(this) ) lhs( this[[i]] ) <- value[[i]]
+  } else if( length(x) == length(value) ) {
+    for( i in 1:length(x) ) lhs( x[[i]] ) <- value[[i]]
 
   } else { 
     warning( "length of object != length of lhs replacement" )
   }
 
-  this 
+  x 
 
 }
 
-  
+#' @name lhs<-  
+#' @rdname formula.parts 
+#' @aliases lhs<-,expression-method
+setReplaceMethod( 'lhs', c('expression','ANY') , .replace.lhs.plural )
 
-setReplaceMethod( 'lhs', 'expression' , .replace.lhs.plural )
+#' @name lhs<-
+#' @rdname formula.parts
+#' @aliases lhs<-,list-method 
 setReplaceMethod( 'lhs', 'list' , .replace.lhs.plural )
-
-

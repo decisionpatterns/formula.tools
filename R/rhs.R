@@ -2,11 +2,17 @@
 # rhs
 #   extract and manipulate the right-hand side of R objects
 # -----------------------------------------------------------------------------
+
+#' @name rhs
+#' @rdname formula.parts 
+#' @export 
 setGeneric( 'rhs', function(x, ...) standardGeneric( 'rhs' ) )
 
 # -------------------------------------
 # SINGULAR
 # -------------------------------------
+
+#' @rdname formula.parts
 .rhs.singular <- function(x) {
 
   if( ! is.operator( x[[1]] ) ) stop( x[[1]], " does not appear to be an operator." )
@@ -17,14 +23,26 @@ setGeneric( 'rhs', function(x, ...) standardGeneric( 'rhs' ) )
       x[[2]]
 }   
  
+#' @rdname formula.parts
+#' @aliases rhs,call-methods
 setMethod( 'rhs', 'call', .rhs.singular ) 
+
+#' @rdname formula.parts
+#' @aliases rhs,formula-method
 setMethod( 'rhs', 'formula', .rhs.singular )
+
+#' @rdname formula.parts
+#' @aliases lhs,<--method
 setMethod( 'rhs', '<-', function(x) x[[3]] )
 
 # -------------------------------------
 # PLURAL    
 # -------------------------------------
 # setMethod( 'rhs', 'expression', function(x,...) lapply( x, rhs, ... ) )       
+
+#' @rdname formula.parts
+#' @aliases rhs,expresion-method
+
 setMethod( 'rhs', 'expression', 
   function(x,...) { 
     ret <- vector( 'expression', length(x) )
@@ -36,6 +54,9 @@ setMethod( 'rhs', 'expression',
   }
 )
 
+#' @rdname formula.parts
+#' @aliases rhs,list-method
+
 setMethod( 'rhs', 'list', function(x,...) lapply( x, rhs, ... ) )
  
 
@@ -43,18 +64,34 @@ setMethod( 'rhs', 'list', function(x,...) lapply( x, rhs, ... ) )
 # -----------------------------------------------------------------------------
 # REPLACEMENT METHOD 
 # -----------------------------------------------------------------------------
-setGeneric( 'rhs<-', function(this,value) standardGeneric('rhs<-') )
+
+
+#' @name rhs<-
+#' @aliases rhs<-
+#' @rdname formula.parts
+#' @export
+setGeneric( 'rhs<-', function(x,value) standardGeneric('rhs<-') )
 
 # -------------------------------------
 # SINGULAR: call, formula
 # -------------------------------------
-.replace.rhs.singular <-  function(this,value) {
 
-    this[[3]] <- value 
-    this 
+#' @rdname formula.parts
+#' @aliases .replace.rhs.singular
+.replace.rhs.singular <-  function(x,value) {
+
+    x[[3]] <- value 
+    x 
 }                                                    
 
+#' @rdname formula.parts
+#' @name rhs<- 
+#' @aliases rhs<-,call-method
 setReplaceMethod( 'rhs', 'call' , .replace.rhs.singular )
+
+#' @rdname formula.parts
+#' @name rhs<- 
+#' @aliases rhs<-,call-method
 setReplaceMethod( 'rhs', 'formula' , .replace.rhs.singular )
 
 
@@ -66,40 +103,48 @@ setReplaceMethod( 'rhs', 'formula' , .replace.rhs.singular )
 #     one value, e.g. rhs(e) <- 1:3.  Because of the 
 #     ambiguity, we do not do multiple replaces.
 # -------------------------------------
-# .replace.rhs.plural <- function( this, value ) {
+# .replace.rhs.plural <- function( x, value ) {
 # 
 #     if( length(value) == 1 ) {
-#       for( i in 1:length(this) ) rhs( this[[i]] ) <- value 
+#       for( i in 1:length(x) ) rhs( x[[i]] ) <- value 
 # 
 #     } else {  
 # 
-#       if( length(this) != length(value) ) 
+#       if( length(x) != length(value) ) 
 #         stop( "Cannot change the rhs. Arguments have different lengths." )
 # 
-#       for( i in 1:length(this) ) rhs( this[[i]] ) <- value[[i]]
+#       for( i in 1:length(x) ) rhs( x[[i]] ) <- value[[i]]
 # 
 #     }
 # 
-#     this
+#     x
 # }        
 
-.replace.rhs.plural <- function( this, value ) {
+#' @rdname formula.parts
+#' @aliases .replace.ths.plural
+.replace.rhs.plural <- function( x, value ) {
 
   if( length(value) == 1 ) { 
-    for( i in 1:length(this) ) rhs( this[[i]] ) <- value 
+    for( i in 1:length(x) ) rhs( x[[i]] ) <- value 
  
-  } else if( length(this) == length(value) ) {
-    for( i in 1:length(this) ) rhs( this[[i]] ) <- value[[i]]
+  } else if( length(x) == length(value) ) {
+    for( i in 1:length(x) ) rhs( x[[i]] ) <- value[[i]]
 
   } else { 
     warning( "length of object != length of rhs replacement" )
   }
 
-  this     
+  x     
 
 }
 
-
+#' @name rhs<-
+#' @rdname formula.parts
+#' @aliases rhs<-,expression-method
 setReplaceMethod( 'rhs', 'expression' , .replace.rhs.plural )
+
+#' @name rhs<-
+#' @rdname formula.parts
+#' @aliases rhs<-,list-method
 setReplaceMethod( 'rhs', 'list' , .replace.rhs.plural )
 

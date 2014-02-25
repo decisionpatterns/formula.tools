@@ -3,12 +3,26 @@
 #   extract and manipulate the operator of a call, expression or rule
 #   generics are provided in the expressions package
 # -----------------------------------------------------------------------------
+
+#' @rdname formula.parts
+#' @aliases op
+#' @export
 setGeneric( 'op', function(x) standardGeneric( 'op' ) )
 
+#' @rdname formula.parts
+#' @aliases op,formula-method
 setMethod( 'op', 'formula', function(x) x[[1]] )
+
+#' @rdname formula.parts
+#' @aliases op,call-method
 setMethod( 'op', 'call', function(x) x[[1]] )
+
+#' @rdname formula.parts
+#' @aliases op,name-method
 setMethod( 'op', 'name', function(x) if( as.character(x) %in% operators( "ALL" ) ) return(x) )
 
+#' @rdname formula.parts
+#' @aliases op,expression-method
 setMethod( 'op', 'expression', 
   function(x) {
     ret <- vector( 'expression', length(x) )
@@ -20,23 +34,35 @@ setMethod( 'op', 'expression',
   }
 )
 
-
+#' @rdname formula.parts
+#' @aliases op,list-method
 setMethod( 'op', 'list', function(x) lapply(x,op) )
+
+#' @rdname formula.parts
+#' @aliases op,<--method
 setMethod( 'op', '<-', function(x) x[[1]] ) 
 
 # -----------------------------------------------------------------------------
 # REPLACEMENT : OP<-
 # -----------------------------------------------------------------------------
-setGeneric( 'op<-', function(this,value) standardGeneric('op<-') )
+
+#' @rdname formula.parts
+#' @aliases op<-
+#' @export
+setGeneric( 'op<-', function(x,value) standardGeneric('op<-') )
 
 # -------------------------------------
 # SINGLE: call, formula
-#  - Note: if value == '~' should we eval this to return a formula?
+#  - Note: if value == '~' should we eval x to return a formula?
 # -------------------------------------   
+
+#' @rdname formula.parts
+#' @aliases op<-,call-method
+#' @name op<-
 setReplaceMethod( 'op', 'call', 
-  function( this, value ) {
-    this[[1]] <- as.name(value)
-    this
+  function( x, value ) {
+    x[[1]] <- as.name(value)
+    x
   }
 )
 
@@ -51,19 +77,23 @@ setReplaceMethod( 'op', 'call',
 #   no longer have a formula, but a call object.  
 #   That is, a formula appears to inherit a call.  
 # ----------------------------------------------------------------------
+
+#' @rdname formula.parts
+#' @aliases op<-,formula-method
+#' @name op<-
 setReplaceMethod( 'op', 'formula', 
-  function(this,value) {
+  function(x,value) {
     new.op <- as.name(value) 
 
     # THIS CATCHES THAT WE DON"T CHANGE THE TILDE~:
-    if ( new.op == op(this) ) return(this)  
+    if ( new.op == op(x) ) return(x)  
 
     # When we change from a tilde the operator type gets degraded.
     if( as.character(value) %in% operators( "ALL" ) ) {
       c <- quote( x == y )  # generic call object
-      lhs(c) <- lhs(this) 
+      lhs(c) <- lhs(x) 
       op(c)  <- new.op
-      rhs(c) <- rhs(this) 
+      rhs(c) <- rhs(x) 
     } else {
       stop( value, " was not found as an operator." )
     }
@@ -77,25 +107,35 @@ setReplaceMethod( 'op', 'formula',
 # -------------------------------------
 # LIST AND VECTORS: expression, list
 # -------------------------------------
-.replace.op.plural <- function( this, value ) {
+
+#' @rdname formula.parts
+#' @aliases .replace.op.plural 
+.replace.op.plural <- function( x, value ) {
 
   if( length(value) == 1  ) { 
-    for( i in 1:length(this) ) op( this[[i]] ) <- as.name(value) 
+    for( i in 1:length(x) ) op( x[[i]] ) <- as.name(value) 
 
-  } else if( length(this) == length(value) ) {
-    for( i in 1:length(this) ) op( this[[i]] ) <- as.name( value[[i]] )
+  } else if( length(x) == length(value) ) {
+    for( i in 1:length(x) ) op( x[[i]] ) <- as.name( value[[i]] )
 
   } else { 
     warning( "length of object != length of op replacement" )
 
   }
     
-  this
+  x
   
 }
 
-
+#' @rdname formula.parts
+#' @aliases op<-,expression-method
+#' @name op<-
 setReplaceMethod( 'op', 'expression' , .replace.op.plural )
+
+
+#' @rdname formula.parts
+#' @aliases op<-,list-method
+#' @name op<-
 setReplaceMethod( 'op', 'list' , .replace.op.plural ) 
 
 

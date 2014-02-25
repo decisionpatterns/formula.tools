@@ -2,8 +2,13 @@
 # rhs.vars
 # -----------------------------------------------------------------------------
 
+#' @rdname get.vars
+#' @aliases rhs.vars
+#' @export
 setGeneric( 'rhs.vars', function(x, ... ) standardGeneric( 'rhs.vars' ) )
 
+#' @rdname get.vars
+#' @aliases .rhs.vars
 .rhs.vars <- 
   function(x, ..., data=NULL) 
   {
@@ -29,9 +34,16 @@ setGeneric( 'rhs.vars', function(x, ... ) standardGeneric( 'rhs.vars' ) )
 
 
 
-
+#' @rdname get.vars
+#' @aliases rhs.vars,formula-method
 setMethod( 'rhs.vars' , 'formula', .rhs.vars )
+
+#' @rdname get.vars
+#' @aliases rhs.vars,call-method
 setMethod( 'rhs.vars' , 'call'   , .rhs.vars )
+
+#' @rdname get.vars
+#' @aliases rhs.vars,expression-method
 setMethod( 'rhs.vars' , 'expression', function(x,...) lapply(x, rhs.vars, ...))
 
 
