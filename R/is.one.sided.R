@@ -38,8 +38,12 @@ setGeneric( 'is.one.sided', function(x, ...) standardGeneric( 'is.one.sided' ) )
 setMethod( 'is.one.sided', 'formula', .is.one.sided )
 
 #' @rdname is.one.sided
-#' @aliases is.one.sided,formula-method
+#' @aliases is.one.sided,call-method
 setMethod( 'is.one.sided', 'call', .is.one.sided )
+
+#' @rdname is.one.sided
+#' @aliases is.one.sided,ANY-method
+setMethod( 'is.one.sided', 'ANY', .is.one.sided )
 
 
 # PLURAL METHODS
@@ -89,6 +93,10 @@ setMethod( 'is.two.sided', 'formula', .is.two.sided )
 #' @rdname is.one.sided
 #' @aliases is.two.sided,call-method
 setMethod( 'is.two.sided', 'call', .is.two.sided )
+
+#' @rdname is.one.sided
+#' @aliases is.two.sided,ANY-method
+setMethod( 'is.two.sided', 'ANY', .is.two.sided )
 
 
 # PLURAL
