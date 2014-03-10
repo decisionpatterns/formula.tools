@@ -79,7 +79,7 @@
 #'   op.type(c)
 #'
 #'   # ASSIGNMENT 
-#'   a <- quote( A <- B ) 
+#'   a  <- quote( A <- B ) 
 #'   lhs(a)
 #'   rhs(a) 
 #'   op(a)

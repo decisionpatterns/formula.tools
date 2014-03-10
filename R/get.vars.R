@@ -38,6 +38,7 @@
 #' @docType methods 
 #' @export 
 #' @rdname get.vars
+#' @name get.vars
 
 setGeneric( 
   'get.vars', function(x, data=NULL, ...) standardGeneric( 'get.vars' ) 
@@ -93,7 +94,7 @@ setMethod( 'get.vars', c( 'call', 'ANY' ),
 #' @aliases get.vars,expression,missing-method
 
 setMethod( 'get.vars', c( 'expression', 'missing' ) ,
-  function( x, ... ) all.vars( x, ... ) 
+  function( x, data, ... ) all.vars( x, ... ) 
 )
 
 

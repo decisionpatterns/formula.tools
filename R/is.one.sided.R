@@ -21,7 +21,7 @@
 #' @aliases .is.one.sided
 #' @rdname is.one.sided 
 
-.is.one.sided <- function(x) 
+.is.one.sided <- function(x, ...) 
     is.name(x[[1]])  && 
     deparse(x[[1]]) %in% c( '~', '!') && 
      length(x) == 2 
@@ -42,8 +42,8 @@ setMethod( 'is.one.sided', 'formula', .is.one.sided )
 setMethod( 'is.one.sided', 'call', .is.one.sided )
 
 #' @rdname is.one.sided
-#' @aliases is.one.sided,ANY-method
-setMethod( 'is.one.sided', 'ANY', .is.one.sided )
+#' @aliases is.one.sided,<--method
+setMethod( 'is.one.sided', '<-', .is.one.sided )
 
 
 # PLURAL METHODS
@@ -62,7 +62,7 @@ setMethod( 'is.one.sided', 'list', .is.one.sided.plural )
 #' @rdname is.one.sided
 #' @aliases is.one.sided,ANY-method
 setMethod( 'is.one.sided', 'ANY', 
-  function(x,...) {
+  function(x, ...) {
     warning( "'is.one.sided' is not defined for object of class: ", class(x) )
     return(NA)
   }
@@ -95,8 +95,8 @@ setMethod( 'is.two.sided', 'formula', .is.two.sided )
 setMethod( 'is.two.sided', 'call', .is.two.sided )
 
 #' @rdname is.one.sided
-#' @aliases is.two.sided,ANY-method
-setMethod( 'is.two.sided', 'ANY', .is.two.sided )
+#' @aliases is.two.sided,<--method
+setMethod( 'is.two.sided', '<-', .is.two.sided )
 
 
 # PLURAL

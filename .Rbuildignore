@@ -1,3 +1,4 @@
+archive
 ^\.Rproj\.user$
 ^.git.*
 ^.gitignore

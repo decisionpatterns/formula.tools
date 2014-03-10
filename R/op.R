@@ -38,9 +38,13 @@ setMethod( 'op', 'expression',
 #' @aliases op,list-method
 setMethod( 'op', 'list', function(x) lapply(x,op) )
 
-# @rdname formula.parts
-# @aliases op,<--method
+
+#' @rdname formula.parts
+#' @aliases op,<--method
+
 setMethod( 'op', '<-', function(x) x[[1]] ) 
+
+
 
 # -----------------------------------------------------------------------------
 # REPLACEMENT : OP<-
@@ -82,7 +86,7 @@ setReplaceMethod( 'op', 'call',
 #' @aliases op<-,formula-method
 #' @name op<-
 setReplaceMethod( 'op', 'formula', 
-  function(x,value) {
+  function( x, value ) {
     new.op <- as.name(value) 
 
     # THIS CATCHES THAT WE DON"T CHANGE THE TILDE~:

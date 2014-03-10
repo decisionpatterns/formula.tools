@@ -25,7 +25,7 @@ get.vars(x, data = NULL, ...)
 
 \S4method{get.vars}{call,ANY}(x, data = NULL, ...)
 
-\S4method{get.vars}{expression,missing}(x, ...)
+\S4method{get.vars}{expression,missing}(x, data, ...)
 
 \S4method{get.vars}{name,ANY}(x, data, ...)
 

@@ -90,20 +90,19 @@ is.cat(letters)          # TRUE
   is.cat(FALSE)            # TRUE
   is.cat(1:10)             # FALSE
   is.cat(rnorm(10))        # FALSE
-  is.cat( now() )          # FALSE
 
   is.cont(letters)         # FALSE
   is.cont(factor(letters)) # FALSE
   is.cont(TRUE)            # FALSE
   is.cont(FALSE)           # FALSE
   is.cont(1:10)            # TRUE
-  is.contt(rnorm(10))      # TRUE
+  is.cont(rnorm(10))      # TRUE
 
   which.cat(iris)
-  which.cat(iris, names=T)
+  which.cat( iris, names=TRUE )
 
-  which.cont(iris)
-  which.cont(iris,names=T)
+  which.cont( iris )
+  which.cont( iris, names=TRUE )
 }
 \seealso{
 \code{\link{which}}, \code{\link{is}}

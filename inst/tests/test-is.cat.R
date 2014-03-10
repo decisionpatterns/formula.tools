@@ -1,5 +1,5 @@
-library(testthat)
-library(formula.tools)
+# library(testthat)
+# library(formula.tools)
 
 # TEST: is.cat
 expect_that( is.cat(letters), is_true() )           # character

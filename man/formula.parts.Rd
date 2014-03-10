@@ -10,17 +10,17 @@
 \alias{.rhs.singular}
 \alias{formula.parts-methods}
 \alias{lhs}
-\alias{lhs,}
+\alias{lhs,<--method}
 \alias{lhs,call-method}
-\alias{lhs,expression-method}
 \alias{lhs,formula-method}
 \alias{lhs,list-method}
 \alias{lhs<-}
-\alias{lhs<-,call,ANY-method}
+\alias{lhs<-,call-method}
 \alias{lhs<-,expression-method}
-\alias{lhs<-,formula,ANY-method}
+\alias{lhs<-,formula-method}
 \alias{lhs<-,list-method}
 \alias{op}
+\alias{op,<--method}
 \alias{op,call-method}
 \alias{op,expression-method}
 \alias{op,formula-method}
@@ -32,15 +32,16 @@
 \alias{op<-,formula-method}
 \alias{op<-,list-method}
 \alias{rhs}
+\alias{rhs,<--method}
 \alias{rhs,call-method}
 \alias{rhs,call-methods}
-\alias{rhs,expresion-method}
-\alias{rhs,expression-method}
 \alias{rhs,formula-method}
 \alias{rhs,list-method}
+\alias{rhs,set-method}
 \alias{rhs<-}
 \alias{rhs<-,call-method}
 \alias{rhs<-,expression-method}
+\alias{rhs<-,formula-method}
 \alias{rhs<-,list-method}
 \title{Manipulate the component parts of formulas, expressions, calls, name/symbols
 and list and vectors of such objects.}
@@ -53,7 +54,7 @@ lhs(x, ...)
 
 \S4method{lhs}{formula}(x)
 
-\S4method{lhs}{expression}(x, ...)
+\\method{lhs}{<-}(x)
 
 \S4method{lhs}{list}(x, ...)
 
@@ -75,6 +76,8 @@ op(x)
 
 \S4method{op}{list}(x)
 
+\S4method{op}{<-}(x)
+
 op(x) <- value
 
 .replace.op.plural(x, value)
@@ -87,7 +90,7 @@ rhs(x, ...)
 
 \S4method{rhs}{formula}(x)
 
-\S4method{rhs}{expression}(x, ...)
+\S4method{rhs}{'<-'}(x)
 
 \S4method{rhs}{list}(x, ...)
 
@@ -185,7 +188,7 @@ expression, etc.
   op.type(c)
 
   # ASSIGNMENT
-  a <- quote( A <- B )
+  a  <- quote( A <- B )
   lhs(a)
   rhs(a)
   op(a)

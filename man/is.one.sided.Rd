@@ -7,6 +7,7 @@
 \alias{expression-method}
 \alias{is.one.sided}
 \alias{is.one.sided,}
+\alias{is.one.sided,<--method}
 \alias{is.one.sided,ANY-method}
 \alias{is.one.sided,call-method}
 \alias{is.one.sided,expression-method}
@@ -14,6 +15,7 @@
 \alias{is.one.sided,list-method}
 \alias{is.two.sided}
 \alias{is.two.sided,}
+\alias{is.two.sided,<--method}
 \alias{is.two.sided,ANY-method}
 \alias{is.two.sided,call-method}
 \alias{is.two.sided,expression-method}
@@ -22,13 +24,15 @@
 \alias{is.two.sided-methods}
 \title{Determine if an object is one- or two- sided.}
 \usage{
-.is.one.sided(x)
+.is.one.sided(x, ...)
 
 is.one.sided(x, ...)
 
-\S4method{is.one.sided}{formula}(x)
+\S4method{is.one.sided}{formula}(x, ...)
 
-\S4method{is.one.sided}{call}(x)
+\S4method{is.one.sided}{call}(x, ...)
+
+\S4method{is.one.sided}{<-}(x, ...)
 
 .is.one.sided.plural(x, ...)
 
@@ -45,6 +49,8 @@ is.two.sided(x, ...)
 \S4method{is.two.sided}{formula}(x)
 
 \S4method{is.two.sided}{call}(x)
+
+\S4method{is.two.sided}{<-}(x)
 
 .is.two.sided.plural(x, ...)
 

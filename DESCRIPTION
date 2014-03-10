@@ -19,5 +19,6 @@ Suggests:
     testthat
 License: GPL (>= 2)
 URL: https://github.com/decisionpatterns/formula.tools
+BugReports: https://github.com/decisionpatterns/formula.tools/issues
 LazyLoad: yes
 LazyData: yes

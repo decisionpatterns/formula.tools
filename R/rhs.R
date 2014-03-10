@@ -31,9 +31,16 @@ setMethod( 'rhs', 'call', .rhs.singular )
 #' @aliases rhs,formula-method
 setMethod( 'rhs', 'formula', .rhs.singular )
 
-# @rdname formula.parts
-# @aliases lhs,<--method
+
+#' @rdname formula.parts
+#' @aliases rhs,set-method
 setMethod( 'rhs', '<-', function(x) x[[3]] )
+
+# #' @rdname formula.parts
+# #' @aliases rhs,ANY-method
+# setMethod( 'rhs', 'ANY', .rhs.singular )
+
+
 
 # -------------------------------------
 # PLURAL    
@@ -78,8 +85,7 @@ setGeneric( 'rhs<-', function(x,value) standardGeneric('rhs<-') )
 
 #' @rdname formula.parts
 #' @aliases .replace.rhs.singular
-.replace.rhs.singular <-  function(x,value) {
-
+.replace.rhs.singular <-  function( x, value ) {
     x[[3]] <- value 
     x 
 }                                                    
@@ -91,8 +97,9 @@ setReplaceMethod( 'rhs', 'call' , .replace.rhs.singular )
 
 #' @rdname formula.parts
 #' @name rhs<- 
-#' @aliases rhs<-,call-method
+#' @aliases rhs<-,formula-method
 setReplaceMethod( 'rhs', 'formula' , .replace.rhs.singular )
+
 
 
 # -------------------------------------

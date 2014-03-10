@@ -24,6 +24,7 @@ setGeneric( 'lhs', function(x, ...) standardGeneric( 'lhs' ) )
 
 #' @rdname formula.parts
 #' @aliases .lhs.singular
+
 .lhs.singular <- 
   function(x) 
     if( is.two.sided(x) ) x[[2]] else 
@@ -31,22 +32,28 @@ setGeneric( 'lhs', function(x, ...) standardGeneric( 'lhs' ) )
         warning( "Could not extract lhs of ", x ) 
 
 
-#' @rdname formula.parts
-#' @aliases lhs,
+# @rdname formula.parts
+# @aliases lhs
  
 #' @rdname formula.parts
 #' @aliases lhs,call-method
 setMethod( 'lhs', 'call', .lhs.singular ) 
 
+
 #' @rdname formula.parts
 #' @aliases lhs,formula-method
 setMethod( 'lhs', 'formula', .lhs.singular )  
 
-# @rdname formula.parts
-# @aliases lhs,assignment-method
-# @name lhs-assign
+#' @rdname formula.parts
+#' @aliases lhs,"<-"-method
+# @name lhs
+#' @usage \\method{lhs}{<-}(x)
 setMethod( 'lhs', '<-', function(x) x[[2]] )
 
+
+# #' @rdname formula.parts
+# #' @aliases lhs,ANY-method
+# setMethod( 'lhs', 'ANY', .lhs.singular )
 
 
 # -------------------------------------
@@ -75,12 +82,15 @@ setMethod(  'lhs', 'list', function(x, ...) lapply( x, lhs, ... ) )
 
 
 
+
+
 # -----------------------------------------------------------------------------
 # REPLACEMENT : lhs<-
 # -----------------------------------------------------------------------------
 #' @rdname formula.parts
-#' @aliases lhs<-
+# @aliases l
 #' @export  
+#' @name lhs<-
 setGeneric( 'lhs<-', function( x, value ) standardGeneric('lhs<-') )
 
 
@@ -91,20 +101,22 @@ setGeneric( 'lhs<-', function( x, value ) standardGeneric('lhs<-') )
 #' @rdname formula.parts
 #' @aliases .replace.lhs.singular
 
-.replace.lhs.singular <-  function(x,value) {
+.replace.lhs.singular <-  function( x, value ) {
     x[[2]] <- value 
     x 
 }
 
 #' @rdname formula.parts
 #' @name lhs<-
-#' @aliases lhs<-,call,ANY-method
-setReplaceMethod( 'lhs', c('call','ANY'), .replace.lhs.singular )
+#' @aliases lhs<-,call-method
+
+setReplaceMethod( 'lhs', 'call', .replace.lhs.singular )
+
 
 #' @name lhs<-
 #' @rdname formula.parts
-#' @aliases lhs<-,formula,ANY-method
-setReplaceMethod( 'lhs', c('formula','ANY') , .replace.lhs.singular )
+#' @aliases lhs<-,formula-method
+setReplaceMethod( 'lhs', 'formula' , .replace.lhs.singular )
 
 
 
@@ -155,3 +167,5 @@ setReplaceMethod( 'lhs', c('expression','ANY') , .replace.lhs.plural )
 #' @rdname formula.parts
 #' @aliases lhs<-,list-method 
 setReplaceMethod( 'lhs', 'list' , .replace.lhs.plural )
+
+
