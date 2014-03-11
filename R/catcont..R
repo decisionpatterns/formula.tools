@@ -37,7 +37,7 @@
 #'   is.cat(FALSE)            # TRUE
 #'   is.cat(1:10)             # FALSE
 #'   is.cat(rnorm(10))        # FALSE  
-#   is.cat( now() )          # FALSE 
+#'   is.cat( now() )          # FALSE 
 #'   
 #'   is.cont(letters)         # FALSE
 #'   is.cont(factor(letters)) # FALSE

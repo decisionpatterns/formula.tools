@@ -45,9 +45,9 @@ setMethod( 'lhs', 'call', .lhs.singular )
 setMethod( 'lhs', 'formula', .lhs.singular )  
 
 #' @rdname formula.parts
-#' @aliases lhs,"<-"-method
-# @name lhs
-#' @usage \\method{lhs}{<-}(x)
+#' @aliases lhs,<--method
+# @usage \S4method{lhs}{`<-`}(x)
+ 
 setMethod( 'lhs', '<-', function(x) x[[2]] )
 
 
