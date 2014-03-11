@@ -1,4 +1,7 @@
+archive
 ^\.Rproj\.user$
 ^.git.*
 ^.gitignore
 .*\.RProj.*
+^.*\.Rproj$
+TODO*

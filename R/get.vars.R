@@ -10,6 +10,37 @@
 #   Returns the variables in order of appearance
 # -----------------------------------------------------------------------------
 
+
+#' Get variable (names) from various R objects
+#' 
+#' \code{get.vars} extracts variable names from various R objects such as
+#' formulas, expressions, calls, symbols, etc.  It is very similar to
+#' \code{\link[base]{all.vars}} except that all symbols, etc. are interpolated to 
+#' the names of variables.
+#' 
+#' @param x object to extract vars from.
+#' @param data data set/list or environment on which the names are defined
+#' @param ... arguments passed to subsequent functions
+#' 
+#' \code{get.vars} and variant get the variables from objects optionally 
+#' interpreting on \code{.} on the data.  This is useful, for example, when you 
+#' wish to know what data is used based on a given formula.
+#' 
+#' Methods/functions beginning with \code{.} are not exported
+#' 
+#' @return character vector of variables names
+#' 
+#' @seealso \code{\link[base]{all.vars}}
+#' 
+#' @examples 
+#'   get.vars( Species ~ ., iris )
+#'   get.vars( quote( Sepal.Length * Sepal.Width ), iris )
+#'   
+#' @docType methods 
+#' @rdname get.vars
+#' @name get.vars
+#' @export get.vars
+
 setGeneric( 
   'get.vars', function(x, data=NULL, ...) standardGeneric( 'get.vars' ) 
 )
@@ -23,6 +54,9 @@ setGeneric(
 #   Some edge cases may not work.
 #  
 # ---------------------------------------------------------------------
+
+#' @rdname get.vars 
+#' @aliases get.vars,formula,ANY-method
 setMethod( 'get.vars', c( 'formula', 'ANY' ) ,
   # get.vars.form <- 
   function(x, data=NULL, ... ) {
@@ -40,9 +74,11 @@ setMethod( 'get.vars', c( 'formula', 'ANY' ) ,
 )
 
 
+
 # ---------------------------------------------------------------------
-# SIGNATURE: call
-# ---------------------------------------------------------------------
+#' @rdname get.vars
+#' @aliases get.vars,call,ANY-method
+
 setMethod( 'get.vars', c( 'call', 'ANY' ), 
   #  get.vars.call <- function(x,data,...) {
   function( x, data=NULL, ... ) {
@@ -55,17 +91,18 @@ setMethod( 'get.vars', c( 'call', 'ANY' ),
 
 
 # ---------------------------------------------------------------------
-#  SIGNATURE: expression, missing
-# ---------------------------------------------------------------------
+#' @rdname get.vars
+#' @aliases get.vars,expression,missing-method
+
 setMethod( 'get.vars', c( 'expression', 'missing' ) ,
-  function( x, ... ) all.vars( x, ... ) 
+  function( x, data, ... ) all.vars( x, ... ) 
 )
 
 
 # ---------------------------------------------------------------------
-# SIGNATURE: name
-#   Simply returns itself
-# ---------------------------------------------------------------------
+#' @rdname get.vars
+#' @aliases get.vars,name,ANY-method
+
 setMethod( 'get.vars', c( 'name', 'ANY' ) ,
   function( x, data, ... ) as.character(x) 
 )
@@ -73,8 +110,8 @@ setMethod( 'get.vars', c( 'name', 'ANY' ) ,
 
 
 # ---------------------------------------------------------------------
-# ANY
-# ---------------------------------------------------------------------
+#' @rdname get.vars
+#' @aliases get.vars,ANY,ANY-methods
 setMethod( 'get.vars', c( 'ANY', 'ANY' ), 
   function( x, data, ... ) NULL
 )
