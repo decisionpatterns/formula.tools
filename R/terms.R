@@ -48,5 +48,5 @@ terms.call <- function( x , ...  )
 }
    
 #' @rdname terms
-#' @export
+#' @export 
 terms.expression <- function(x,...) lapply(x, terms, ... )  

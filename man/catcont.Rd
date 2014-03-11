@@ -79,7 +79,8 @@ These functions facilitate working with variables as categorical or continous
 rather than logical, integer, numeric, factor, character, ..
 }
 \examples{
-is.cat(letters)          # TRUE
+\dontrun{
+  is.cat(letters)          # TRUE
   is.cat(factor(letters))  # TRUE
   is.cat(TRUE)             # TRUE
   is.cat(FALSE)            # TRUE
@@ -99,6 +100,7 @@ is.cat(letters)          # TRUE
 
   which.cont( iris )
   which.cont( iris, names=TRUE )
+ }
 }
 \seealso{
 \code{\link{which}}, \code{\link{is}}

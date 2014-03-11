@@ -18,7 +18,7 @@
 #' @docType methods
 #' @rdname op.type
 #' @aliases op.type-methods
-#' @export
+#' @export op.type
 
 setGeneric( 'op.type', function(x) standardGeneric( 'op.type' ) )
 
