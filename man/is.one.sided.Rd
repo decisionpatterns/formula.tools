@@ -5,9 +5,7 @@
 \alias{.is.one.sided.plural}
 \alias{.is.two.sided}
 \alias{.is.two.sided.plural}
-\alias{expression-method}
 \alias{is.one.sided}
-\alias{is.one.sided,}
 \alias{is.one.sided,<--method}
 \alias{is.one.sided,ANY-method}
 \alias{is.one.sided,call-method}
@@ -74,7 +72,8 @@ is.two.sided(x, ...)
 logical; whether \code{x} is one sided or
 }
 \description{
-Test whether a object (typically formula, call or expression) is one-, e.g.
-\code{ ~ RHS } or two-sided, e.g. \code{LHS = RHS}
+Test whether a object (typically formula, call or
+expression) is one-, e.g. \code{ ~ RHS } or two-sided, e.g.
+\code{LHS = RHS}
 }
 

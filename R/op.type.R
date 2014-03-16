@@ -18,7 +18,7 @@
 #' @docType methods
 #' @rdname op.type
 #' @aliases op.type-methods
-#' @export
+#' @export op.type
 
 setGeneric( 'op.type', function(x) standardGeneric( 'op.type' ) )
 
@@ -34,7 +34,7 @@ setMethod( 'op.type', 'call' , function(x) operator.type( (op(x) )  ) )
 setMethod( 'op.type', 'formula' , function(x) operator.type( op(x) ) )
 
 #' @rdname op.type
-#' @aliases op.type,<-`method
+#' @aliases op.type,`<-`-method
 setMethod( 'op.type', '<-', function(x) operator.type( op(x) ) ) 
 
 #' @rdname op.type

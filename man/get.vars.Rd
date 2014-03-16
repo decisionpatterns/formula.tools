@@ -4,8 +4,6 @@
 \alias{.lhs.vars}
 \alias{.rhs.vars}
 \alias{get.vars}
-\alias{get.vars,ANY,ANY-method}
-\alias{get.vars,ANY,ANY-methods}
 \alias{get.vars,call,ANY-method}
 \alias{get.vars,expression,missing-method}
 \alias{get.vars,formula,ANY-method}
@@ -29,8 +27,6 @@ get.vars(x, data = NULL, ...)
 \S4method{get.vars}{expression,missing}(x, data = NULL, ...)
 
 \S4method{get.vars}{name,ANY}(x, data = NULL, ...)
-
-\S4method{get.vars}{ANY,ANY}(x, data = NULL, ...)
 
 lhs.vars(x, ...)
 
@@ -72,10 +68,11 @@ rhs.vars(x, ...)
 character vector of variables names
 }
 \description{
-\code{get.vars} extracts variable names from various R objects such as
-formulas, expressions, calls, symbols, etc.  It is very similar to
-\code{\link[base]{all.vars}} except that all symbols, etc. are interpolated to
-the names of variables.
+\code{get.vars} extracts variable names from various R
+objects such as formulas, expressions, calls, symbols, etc.
+It is very similar to \code{\link[base]{all.vars}} except
+that all symbols, etc. are interpolated to the names of
+variables.
 }
 \examples{
 get.vars( Species ~ ., iris )

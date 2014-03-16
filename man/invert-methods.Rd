@@ -22,10 +22,12 @@
   should probably not be called directly}
 }
 \value{
-The operand is returned with the relational operators inverted.
+The operand is returned with the relational operators
+inverted.
 }
 \description{
-Invert the operators in an object, usually a formula or expression
+Invert the operators in an object, usually a formula or
+expression
 }
 \examples{
 invert( quote( A >  5 ) )

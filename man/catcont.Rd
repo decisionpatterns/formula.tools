@@ -57,29 +57,36 @@ which.cont(x, ..., names = FALSE)
   \item{...}{arguments passed to other functions}
 }
 \value{
-\code{is.cat} returns \code{TRUE} if \code{x} is \code{character},
-\code{factor} or \code{logical}.  It is \code{FALSE} otherwise.
+\code{is.cat} returns \code{TRUE} if \code{x} is
+\code{character}, \code{factor} or \code{logical}.  It is
+\code{FALSE} otherwise.
 
-\code{is.cont} returns \code{TRUE} if \code{x} is \code{numeric},
-\code{integer}, \code{complex}, \code{Date}, \code{POSIXct}
+\code{is.cont} returns \code{TRUE} if \code{x} is
+\code{numeric}, \code{integer}, \code{complex},
+\code{Date}, \code{POSIXct}
 
-\code{which.cat} and \code{which.cont} report which variables in an object
-are categorical and which are continuous.  By default, interger indices are
-return.  If \code{names=TRUE}, the names of the variables are returned
+\code{which.cat} and \code{which.cont} report which
+variables in an object are categorical and which are
+continuous.  By default, interger indices are return.  If
+\code{names=TRUE}, the names of the variables are returned
 instead.
 }
 \description{
-These functions are used to identify which/if a variable or variables are
-categorical or continuos.  \code{is.cat} and \code{is.cont} take single
-variable arguments.  \code{which.cat} and \code{which.cont} take a list or
-data.frame or any structures whose elements have a class method.
+These functions are used to identify which/if a variable or
+variables are categorical or continuos.  \code{is.cat} and
+\code{is.cont} take single variable arguments.
+\code{which.cat} and \code{which.cont} take a list or
+data.frame or any structures whose elements have a class
+method.
 }
 \details{
-These functions facilitate working with variables as categorical or continous
-rather than logical, integer, numeric, factor, character, ..
+These functions facilitate working with variables as
+categorical or continous rather than logical, integer,
+numeric, factor, character, ..
 }
 \examples{
-is.cat(letters)          # TRUE
+\dontrun{
+  is.cat(letters)          # TRUE
   is.cat(factor(letters))  # TRUE
   is.cat(TRUE)             # TRUE
   is.cat(FALSE)            # TRUE
@@ -99,6 +106,7 @@ is.cat(letters)          # TRUE
 
   which.cont( iris )
   which.cont( iris, names=TRUE )
+ }
 }
 \seealso{
 \code{\link{which}}, \code{\link{is}}

@@ -29,7 +29,8 @@
   Some edge cases may not be supported.}
 }
 \value{
-A terms object.  See \code{\link{terms.object}} for details.
+A terms object.  See \code{\link{terms.object}} for
+details.
 }
 \description{
 terms method for call and expression objects

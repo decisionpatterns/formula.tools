@@ -31,14 +31,15 @@
 #' @return character vector of variables names
 #' 
 #' @seealso \code{\link[base]{all.vars}}
+#' 
 #' @examples 
 #'   get.vars( Species ~ ., iris )
 #'   get.vars( quote( Sepal.Length * Sepal.Width ), iris )
 #'   
 #' @docType methods 
-#' @export 
 #' @rdname get.vars
 #' @name get.vars
+#' @export get.vars
 
 setGeneric( 
   'get.vars', function(x, data=NULL, ...) standardGeneric( 'get.vars' ) 
@@ -108,11 +109,11 @@ setMethod( 'get.vars', c( 'name', 'ANY' ) ,
 
 
 
-# ---------------------------------------------------------------------
-#' @rdname get.vars
-#' @aliases get.vars,ANY,ANY-methods
-setMethod( 'get.vars', c( 'ANY', 'ANY' ), 
-  function( x, data, ... ) NULL
-)
+# # ---------------------------------------------------------------------
+# #' @rdname get.vars
+# #' @aliases get.vars,ANY,ANY-methods
+# setMethod( 'get.vars', c( 'ANY', 'ANY' ), 
+#   function( x, data, ... ) NULL
+# )
 
 

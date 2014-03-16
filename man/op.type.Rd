@@ -3,8 +3,10 @@
 \name{op.type}
 \alias{op.type}
 \alias{op.type,<--method}
-\alias{op.type,<-`method}
 \alias{op.type,ANY-method}
+\alias{op.type,'<-'-method}
+\alias{op.type,`<-`-method}
+\alias{op.type,"<-"-method}
 \alias{op.type,call-method}
 \alias{op.type,expression-method}
 \alias{op.type,formula-method}
@@ -18,7 +20,7 @@ op.type(x)
 
 \S4method{op.type}{formula}(x)
 
-\S4method{op.type}{`<-`}(x)
+\S4method{op.type}{"<-"}(x)
 
 \S4method{op.type}{ANY}(x)
 
@@ -33,9 +35,11 @@ op.type(x)
 a character vector of the operator type(s)
 }
 \description{
-Get the operator type used in an call, formula, expression, etc.
+Get the operator type used in an call, formula, expression,
+etc.
 }
 \seealso{
-\code{\link{op}}, \code{\link[operator.tools]{operator.type}}
+\code{\link{op}},
+\code{\link[operator.tools]{operator.type}}
 }
 

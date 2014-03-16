@@ -30,7 +30,7 @@
 #'    \code{\link{which}}, \code{\link{is}} 
 #'    
 #' @examples
-#' 
+#'  \dontrun{
 #'   is.cat(letters)          # TRUE
 #'   is.cat(factor(letters))  # TRUE
 #'   is.cat(TRUE)             # TRUE 
@@ -51,14 +51,15 @@
 #'   
 #'   which.cont( iris )
 #'   which.cont( iris, names=TRUE )
-#'   
+#'  }
 #' @docType methods
 #' @rdname catcont
 
 
 #' @rdname catcont
 #' @aliases is.cat
-#' @export 
+#' @name is.cat
+#' @export is.cat
 setGeneric( 'is.cat', function(x, ...) standardGeneric( 'is.cat' ) )
 
 #' @rdname catcont
@@ -66,7 +67,7 @@ setGeneric( 'is.cat', function(x, ...) standardGeneric( 'is.cat' ) )
 setMethod( 'is.cat', 'character', function(x) TRUE )
 
 #' @rdname catcont
-#' @aliases is.cat,character-method
+#' @aliases is.cat,factor-method
 setMethod( 'is.cat', 'factor',    function(x) TRUE )
 
 #' @rdname catcont
@@ -84,7 +85,8 @@ setMethod( 'is.cat', 'ANY', function(x) FALSE )
 
 #' @rdname catcont
 #' @aliases is.cont
-#' @export 
+#' @export  is.cont
+#' @name is.cont
 setGeneric( 'is.cont', function(x, ...) standardGeneric( 'is.cont' ) )
 
 #' @rdname catcont
@@ -104,7 +106,7 @@ setMethod( 'is.cont', 'complex', function(x) TRUE )
 setMethod( 'is.cont', 'Date'   , function(x) TRUE ) 
 
 #' @rdname catcont
-#' @aliases is.cont,Date-method
+#' @aliases is.cont,POSIXct-method
 setMethod( 'is.cont', 'POSIXct', function(x) TRUE )
 
 

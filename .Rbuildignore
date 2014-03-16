@@ -4,3 +4,4 @@ archive
 ^.gitignore
 .*\.RProj.*
 ^.*\.Rproj$
+TODO*

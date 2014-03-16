@@ -16,12 +16,12 @@
 #' @keywords manip utilities
 #' @examples
 #' 
-#' as.character( y ~ mx + b )
+#'   as.character( y ~ mx + b )
 #' 
 #' ## The function is currently defined as
 #' function(x)
 #'   Reduce( paste, deparse(x) )
-#' 
+#' @export
 
 as.character.formula <- function(x, ...)
   Reduce( paste, deparse(x) )
