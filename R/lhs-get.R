@@ -14,8 +14,8 @@
 # @name lhs
 #' @rdname parts
 #' @docType methods
+# @include parts.R
 #' @export lhs
-#' @include parts.R
 
 setGeneric( 'lhs', function(x, ...) standardGeneric( 'lhs' ) )
 

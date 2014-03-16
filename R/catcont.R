@@ -67,7 +67,7 @@ setGeneric( 'is.cat', function(x, ...) standardGeneric( 'is.cat' ) )
 setMethod( 'is.cat', 'character', function(x) TRUE )
 
 #' @rdname catcont
-#' @aliases is.cat,character-method
+#' @aliases is.cat,factor-method
 setMethod( 'is.cat', 'factor',    function(x) TRUE )
 
 #' @rdname catcont
@@ -106,7 +106,7 @@ setMethod( 'is.cont', 'complex', function(x) TRUE )
 setMethod( 'is.cont', 'Date'   , function(x) TRUE ) 
 
 #' @rdname catcont
-#' @aliases is.cont,Date-method
+#' @aliases is.cont,POSIXct-method
 setMethod( 'is.cont', 'POSIXct', function(x) TRUE )
 
 

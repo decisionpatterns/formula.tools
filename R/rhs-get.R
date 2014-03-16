@@ -24,7 +24,7 @@ setGeneric( 'rhs', function(x, ...) standardGeneric( 'rhs' ) )
 }   
  
 #' @rdname parts
-#' @aliases rhs,call-methods
+#' @aliases rhs,call-method
 setMethod( 'rhs', 'call', .rhs.singular ) 
 
 #' @rdname parts

@@ -35,7 +35,7 @@ setMethod( 'is.two.sided', '<-', .is.two.sided )
 .is.two.sided.plural <- function(x,...) sapply(x, .is.two.sided ) 
 
 #' @rdname is.one.sided
-#' @aliases is.one.sided, expression-method
+#' @aliases is.two.sided,expression-method
 setMethod( 'is.two.sided', 'expression', .is.two.sided.plural  )
 
 #' @rdname is.one.sided
