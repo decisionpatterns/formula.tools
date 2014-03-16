@@ -22,3 +22,19 @@ URL: https://github.com/decisionpatterns/formula.tools
 BugReports: https://github.com/decisionpatterns/formula.tools/issues
 LazyLoad: yes
 LazyData: yes
+Collate:
+    'as.character.formula.R'
+    'catcont..R'
+    'formula.tools-package.R'
+    'get.vars.R'
+    'invert.R'
+    'is.one.sided.R'
+    'parts.R'
+    'lhs.R'
+    'lhs.vars.R'
+    'op.R'
+    'op.type.R'
+    'rhs.R'
+    'rhs.vars.R'
+    'terms.R'
+    'zzz.R'

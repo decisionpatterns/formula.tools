@@ -85,8 +85,8 @@
 #'   op(a)
 #'   op.type(a) 
 #'
-#' @name formula.parts-methods
-#' @rdname formula.parts.Rd
+# @name parts-methods
+#' @rdname parts
 #' @docType methods
 
 NULL

@@ -3,17 +3,19 @@
 #   extract and manipulate the left-hand side of R objects.
 # -----------------------------------------------------------------------------
 
+#' @include parts.R
+NULL
  
-#' Get/set left- or right- hand side of a formula, call, expression, etc.
-#' 
-
-#' @return the left- or right- hand side of \code{x}
-#'
-#' @examples
-#'   #' -tk
-#' @name lhs
-#' @rdname formula.parts
-#' @docType methods
+# ' Get/set left- or right- hand side of a formula, call, expression, etc.
+# ' 
+# 
+# ' @return the left- or right- hand side of \code{x}
+# '
+# ' @examples
+# '   #' -tk
+# @name lhs
+#' @rdname parts
+# @docType methods
 #' @export
 
 setGeneric( 'lhs', function(x, ...) standardGeneric( 'lhs' ) )
@@ -22,7 +24,7 @@ setGeneric( 'lhs', function(x, ...) standardGeneric( 'lhs' ) )
 # SINGULAR
 # -------------------------------------
 
-#' @rdname formula.parts
+#' @rdname parts
 #' @aliases .lhs.singular
 
 .lhs.singular <- 
@@ -31,27 +33,22 @@ setGeneric( 'lhs', function(x, ...) standardGeneric( 'lhs' ) )
       if( is.one.sided(x) ) NULL   else
         warning( "Could not extract lhs of ", x ) 
 
-
-# @rdname formula.parts
-# @aliases lhs
  
-#' @rdname formula.parts
+#' @rdname parts
 #' @aliases lhs,call-method
 setMethod( 'lhs', 'call', .lhs.singular ) 
 
 
-#' @rdname formula.parts
+#' @rdname parts
 #' @aliases lhs,formula-method
 setMethod( 'lhs', 'formula', .lhs.singular )  
 
-#' @rdname formula.parts
+#' @rdname parts
 #' @aliases lhs,<--method
-# @usage \S4method{lhs}{`<-`}(x)
- 
 setMethod( 'lhs', '<-', function(x) x[[2]] )
 
 
-# #' @rdname formula.parts
+# #' @rdname parts
 # #' @aliases lhs,ANY-method
 # setMethod( 'lhs', 'ANY', .lhs.singular )
 
@@ -62,7 +59,7 @@ setMethod( 'lhs', '<-', function(x) x[[2]] )
 # -------------------------------------
 # setMethod(  'lhs', 'expression', function(x, ... ) lapply( x, lhs, ... ) )
 
-#' @rdname formula.parts
+#' @rdname parts
 #' @aliases lhs,expression-method
 
 setMethod(  'lhs', 'expression', 
@@ -76,7 +73,7 @@ setMethod(  'lhs', 'expression',
   }
 )
 
-#' @rdname formula.parts
+#' @rdname parts
 #' @aliases lhs,list-method
 setMethod(  'lhs', 'list', function(x, ...) lapply( x, lhs, ... ) )
 
@@ -87,18 +84,20 @@ setMethod(  'lhs', 'list', function(x, ...) lapply( x, lhs, ... ) )
 # -----------------------------------------------------------------------------
 # REPLACEMENT : lhs<-
 # -----------------------------------------------------------------------------
-#' @rdname formula.parts
-# @aliases l
+#' @rdname parts
+#' @aliases lhs<--method
 #' @export  
 #' @name lhs<-
+
 setGeneric( 'lhs<-', function( x, value ) standardGeneric('lhs<-') )
+
 
 
 # -------------------------------------
 # SINGLULAR: call, formula
 # -------------------------------------
 
-#' @rdname formula.parts
+#' @rdname parts
 #' @aliases .replace.lhs.singular
 
 .replace.lhs.singular <-  function( x, value ) {
@@ -106,15 +105,14 @@ setGeneric( 'lhs<-', function( x, value ) standardGeneric('lhs<-') )
     x 
 }
 
-#' @rdname formula.parts
+#' @rdname parts
 #' @name lhs<-
 #' @aliases lhs<-,call-method
-
 setReplaceMethod( 'lhs', 'call', .replace.lhs.singular )
 
 
 #' @name lhs<-
-#' @rdname formula.parts
+#' @rdname parts
 #' @aliases lhs<-,formula-method
 setReplaceMethod( 'lhs', 'formula' , .replace.lhs.singular )
 
@@ -139,7 +137,7 @@ setReplaceMethod( 'lhs', 'formula' , .replace.lhs.singular )
 # }        
 
 
-#' @rdname formula.parts
+#' @rdname parts
 #' @aliases .replace.lhs.plural
 
 .replace.lhs.plural <- function( x, value ) { 
@@ -159,12 +157,12 @@ setReplaceMethod( 'lhs', 'formula' , .replace.lhs.singular )
 }
 
 #' @name lhs<-  
-#' @rdname formula.parts 
+#' @rdname parts 
 #' @aliases lhs<-,expression-method
 setReplaceMethod( 'lhs', c('expression','ANY') , .replace.lhs.plural )
 
 #' @name lhs<-
-#' @rdname formula.parts
+#' @rdname parts
 #' @aliases lhs<-,list-method 
 setReplaceMethod( 'lhs', 'list' , .replace.lhs.plural )
 

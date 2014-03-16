@@ -4,24 +4,29 @@
 #   generics are provided in the expressions package
 # -----------------------------------------------------------------------------
 
-#' @rdname formula.parts
+#' @include parts.R
+NULL
+
+
+
+#' @rdname parts
 #' @aliases op
 #' @export
 setGeneric( 'op', function(x) standardGeneric( 'op' ) )
 
-#' @rdname formula.parts
+#' @rdname parts
 #' @aliases op,formula-method
 setMethod( 'op', 'formula', function(x) x[[1]] )
 
-#' @rdname formula.parts
+#' @rdname parts
 #' @aliases op,call-method
 setMethod( 'op', 'call', function(x) x[[1]] )
 
-#' @rdname formula.parts
+#' @rdname parts
 #' @aliases op,name-method
 setMethod( 'op', 'name', function(x) if( as.character(x) %in% operators( "ALL" ) ) return(x) )
 
-#' @rdname formula.parts
+#' @rdname parts
 #' @aliases op,expression-method
 setMethod( 'op', 'expression', 
   function(x) {
@@ -34,12 +39,12 @@ setMethod( 'op', 'expression',
   }
 )
 
-#' @rdname formula.parts
+#' @rdname parts
 #' @aliases op,list-method
 setMethod( 'op', 'list', function(x) lapply(x,op) )
 
 
-#' @rdname formula.parts
+#' @rdname parts
 #' @aliases op,<--method
 
 setMethod( 'op', '<-', function(x) x[[1]] ) 
@@ -50,7 +55,7 @@ setMethod( 'op', '<-', function(x) x[[1]] )
 # REPLACEMENT : OP<-
 # -----------------------------------------------------------------------------
 
-#' @rdname formula.parts
+#' @rdname parts
 #' @aliases op<-
 #' @export
 setGeneric( 'op<-', function(x,value) standardGeneric('op<-') )
@@ -60,7 +65,7 @@ setGeneric( 'op<-', function(x,value) standardGeneric('op<-') )
 #  - Note: if value == '~' should we eval x to return a formula?
 # -------------------------------------   
 
-#' @rdname formula.parts
+#' @rdname parts
 #' @aliases op<-,call-method
 #' @name op<-
 setReplaceMethod( 'op', 'call', 
@@ -82,7 +87,7 @@ setReplaceMethod( 'op', 'call',
 #   That is, a formula appears to inherit a call.  
 # ----------------------------------------------------------------------
 
-#' @rdname formula.parts
+#' @rdname parts
 #' @aliases op<-,formula-method
 #' @name op<-
 setReplaceMethod( 'op', 'formula', 
@@ -112,7 +117,7 @@ setReplaceMethod( 'op', 'formula',
 # LIST AND VECTORS: expression, list
 # -------------------------------------
 
-#' @rdname formula.parts
+#' @rdname parts
 #' @aliases .replace.op.plural 
 .replace.op.plural <- function( x, value ) {
 
@@ -131,13 +136,13 @@ setReplaceMethod( 'op', 'formula',
   
 }
 
-#' @rdname formula.parts
+#' @rdname parts
 #' @aliases op<-,expression-method
 #' @name op<-
 setReplaceMethod( 'op', 'expression' , .replace.op.plural )
 
 
-#' @rdname formula.parts
+#' @rdname parts
 #' @aliases op<-,list-method
 #' @name op<-
 setReplaceMethod( 'op', 'list' , .replace.op.plural ) 

@@ -3,8 +3,12 @@
 #   extract and manipulate the right-hand side of R objects
 # -----------------------------------------------------------------------------
 
-#' @name rhs
-#' @rdname formula.parts 
+#' @include parts.R
+NULL
+
+
+# @name rhs
+#' @rdname parts 
 #' @export 
 setGeneric( 'rhs', function(x, ...) standardGeneric( 'rhs' ) )
 
@@ -12,7 +16,7 @@ setGeneric( 'rhs', function(x, ...) standardGeneric( 'rhs' ) )
 # SINGULAR
 # -------------------------------------
 
-#' @rdname formula.parts
+#' @rdname parts
 .rhs.singular <- function(x) {
 
   if( ! is.operator( x[[1]] ) ) stop( x[[1]], " does not appear to be an operator." )
@@ -23,20 +27,20 @@ setGeneric( 'rhs', function(x, ...) standardGeneric( 'rhs' ) )
       x[[2]]
 }   
  
-#' @rdname formula.parts
+#' @rdname parts
 #' @aliases rhs,call-methods
 setMethod( 'rhs', 'call', .rhs.singular ) 
 
-#' @rdname formula.parts
+#' @rdname parts
 #' @aliases rhs,formula-method
 setMethod( 'rhs', 'formula', .rhs.singular )
 
 
-#' @rdname formula.parts
+#' @rdname parts
 #' @aliases rhs,<--method
 setMethod( 'rhs', '<-', function(x) x[[3]] )
 
-# #' @rdname formula.parts
+# #' @rdname parts
 # #' @aliases rhs,ANY-method
 # setMethod( 'rhs', 'ANY', .rhs.singular )
 
@@ -47,7 +51,7 @@ setMethod( 'rhs', '<-', function(x) x[[3]] )
 # -------------------------------------
 # setMethod( 'rhs', 'expression', function(x,...) lapply( x, rhs, ... ) )       
 
-#' @rdname formula.parts
+#' @rdname parts
 #' @aliases rhs,expresion-method
 
 setMethod( 'rhs', 'expression', 
@@ -61,7 +65,7 @@ setMethod( 'rhs', 'expression',
   }
 )
 
-#' @rdname formula.parts
+#' @rdname parts
 #' @aliases rhs,list-method
 
 setMethod( 'rhs', 'list', function(x,...) lapply( x, rhs, ... ) )
@@ -75,7 +79,7 @@ setMethod( 'rhs', 'list', function(x,...) lapply( x, rhs, ... ) )
 
 #' @name rhs<-
 #' @aliases rhs<-
-#' @rdname formula.parts
+#' @rdname parts
 #' @export
 setGeneric( 'rhs<-', function(x,value) standardGeneric('rhs<-') )
 
@@ -83,19 +87,19 @@ setGeneric( 'rhs<-', function(x,value) standardGeneric('rhs<-') )
 # SINGULAR: call, formula
 # -------------------------------------
 
-#' @rdname formula.parts
+#' @rdname parts
 #' @aliases .replace.rhs.singular
 .replace.rhs.singular <-  function( x, value ) {
     x[[3]] <- value 
     x 
 }                                                    
 
-#' @rdname formula.parts
+#' @rdname parts
 #' @name rhs<- 
 #' @aliases rhs<-,call-method
 setReplaceMethod( 'rhs', 'call' , .replace.rhs.singular )
 
-#' @rdname formula.parts
+#' @rdname parts
 #' @name rhs<- 
 #' @aliases rhs<-,formula-method
 setReplaceMethod( 'rhs', 'formula' , .replace.rhs.singular )
@@ -127,7 +131,7 @@ setReplaceMethod( 'rhs', 'formula' , .replace.rhs.singular )
 #     x
 # }        
 
-#' @rdname formula.parts
+#' @rdname parts
 #' @aliases .replace.ths.plural
 .replace.rhs.plural <- function( x, value ) {
 
@@ -146,12 +150,12 @@ setReplaceMethod( 'rhs', 'formula' , .replace.rhs.singular )
 }
 
 #' @name rhs<-
-#' @rdname formula.parts
+#' @rdname parts
 #' @aliases rhs<-,expression-method
 setReplaceMethod( 'rhs', 'expression' , .replace.rhs.plural )
 
 #' @name rhs<-
-#' @rdname formula.parts
+#' @rdname parts
 #' @aliases rhs<-,list-method
 setReplaceMethod( 'rhs', 'list' , .replace.rhs.plural )
 
