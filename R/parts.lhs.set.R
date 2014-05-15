@@ -5,7 +5,7 @@
 #' @rdname formula.parts
 #' @name lhs<-
 #' @export lhs<-
-#' @include lhs-get.R
+#' @include parts.lhs.get.R
 
 setGeneric( 'lhs<-', function( x, value ) standardGeneric('lhs<-') )
 
