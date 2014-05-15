@@ -16,13 +16,16 @@
 #' @keywords manip utilities
 #' @examples
 #' 
-#'   as.character( y ~ mx + b )
+#'   as.character( y ~ mx +  b )
 #' 
 #' ## The function is currently defined as
 #' function(x)
 #'   Reduce( paste, deparse(x) )
 #' @export
 
-as.character.formula <- function(x, ...)
-  Reduce( paste, deparse(x) )
+as.character.formula <- function(x, ...) { 
+  form <- paste( deparse(x), collapse=" " )
+  form <- gsub( "\\s+", " ", form, perl=FALSE ) # remove multiple spaces
+  return(form)
+}
 
