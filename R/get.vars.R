@@ -15,8 +15,8 @@
 #' 
 #' \code{get.vars} extracts variable names from various R objects such as
 #' formulas, expressions, calls, symbols, etc.  It is very similar to
-#' \code{\link[base]{all.vars}} except that all symbols, etc. are interpolated to 
-#' the names of variables.
+#' \code{\link[base]{all.vars}} except that all symbols, etc. are interpolated 
+#' to the names of variables.
 #' 
 #' @param x object to extract vars from.
 #' @param data data set/list or environment on which the names are defined
@@ -30,13 +30,13 @@
 #' 
 #' @return character vector of variables names
 #' 
-#' @seealso \code{\link[base]{all.vars}}
+#' @seealso 
+#'   \code{\link[base]{all.vars}}
 #' 
 #' @examples 
 #'   get.vars( Species ~ ., iris )
 #'   get.vars( quote( Sepal.Length * Sepal.Width ), iris )
 #'   
-#' @docType methods 
 #' @rdname get.vars
 #' @name get.vars
 #' @export get.vars
@@ -57,6 +57,7 @@ setGeneric(
 
 #' @rdname get.vars 
 #' @aliases get.vars,formula,ANY-method
+#' @export
 setMethod( 'get.vars', c( 'formula', 'ANY' ) ,
   # get.vars.form <- 
   function(x, data=NULL, ... ) {

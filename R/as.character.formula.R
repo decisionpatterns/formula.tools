@@ -28,4 +28,3 @@ as.character.formula <- function(x, ...) {
   form <- gsub( "\\s+", " ", form, perl=FALSE ) # remove multiple spaces
   return(form)
 }
-

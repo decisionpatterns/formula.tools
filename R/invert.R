@@ -16,7 +16,8 @@
 #' @return 
 #'   The operand is returned with the relational operators inverted.
 #' 
-#' @seealso \code{\link{op}}, \code{\link{op.type}} 
+#' @seealso 
+#'   \code{\link{op}}, \code{\link{op.type}} 
 #' 
 #' @author Christopher Brown
 #' 
@@ -30,7 +31,6 @@
 #'   invert( quote( A %in% lettters[1:5] ) )
 #'   invert( quote( A %!in% letters[1:5] ) )
 #' 
-#' @docType methods
 #' @rdname invert-methods
 #' @export
 #' @name invert 

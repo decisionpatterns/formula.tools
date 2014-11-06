@@ -2,8 +2,8 @@ Package: formula.tools
 Type: Package
 Title: Utilities for working with formulas, expressions, calls and other R
     objects
-Version: 1.4.1
-Date: 2014-05-14
+Version: 1.5
+Date: 2014-11-05
 Author: Christopher Brown
 Maintainer: Christopher Brown <chris.brown@decisionpatterns.com>
 Description: This package provides a number of useful utilities for working
@@ -16,6 +16,7 @@ Depends:
     utils,
     methods
 Suggests:
+    magrittr,
     testthat
 License: GPL (>= 2)
 URL: https://github.com/decisionpatterns/formula.tools
