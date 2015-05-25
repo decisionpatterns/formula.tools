@@ -6,7 +6,7 @@ Version: 1.5.1
 Date: 2015-05-25
 Author: Christopher Brown
 Maintainer: Christopher Brown <chris.brown@decisionpatterns.com>
-Description: This package provides a number of useful utilities for working
+Description: 'formula.tools' provides a number of useful utilities for working
     with formulas, expressions, calls, names, symbols and other R objects.
     This package was designed to greatly facilitate symbolic manupulation using
     native R objects.
