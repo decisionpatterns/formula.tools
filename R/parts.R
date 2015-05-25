@@ -88,5 +88,7 @@
 #' @name formula.parts
 #' @rdname formula.parts
 #' @docType methods
+#' @import operator.tools
+#' @import methods
 
 NULL

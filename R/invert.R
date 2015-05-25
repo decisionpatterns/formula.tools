@@ -35,9 +35,9 @@
 #' @export
 #' @name invert 
 
-if( ! isGeneric( 'invert' ) ) {
+# if( ! isGeneric( 'invert' ) ) {
   setGeneric( 'invert', function(x, ...) standardGeneric( 'invert' ) )
-}  
+# }  
 
 
 # Before declaring a new generic function we check to see if it exists.

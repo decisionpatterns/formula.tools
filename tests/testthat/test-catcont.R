@@ -1,3 +1,8 @@
+library(testthat)
+library(formula.tools)
+library(magrittr)
+
+
 context( "is.cat")
 
   is.cat(letters)          %>% expect_true
