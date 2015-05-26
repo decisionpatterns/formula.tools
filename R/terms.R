@@ -32,7 +32,7 @@
 #' 
 #' @aliases terms.call terms.expression terms
 #' @rdname terms
-#' @export terms.call
+#' @export 
 
 terms.call <- function( x , ...  ) 
 {
@@ -49,6 +49,6 @@ terms.call <- function( x , ...  )
    
 #' @rdname terms
 #' @method terms expression
-#' @export terms.expression
+#' @export 
 
 terms.expression <- function(x,...) lapply(x, terms, ... )  
