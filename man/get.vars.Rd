@@ -5,6 +5,10 @@
 \alias{.lhs.vars}
 \alias{.rhs.vars}
 \alias{get.vars}
+\alias{get.vars,ANY,ANY-method}
+\alias{get.vars,ANY,ANY-methods}
+\alias{get.vars,NULL,ANY-method}
+\alias{get.vars,NULL,ANY-methods}
 \alias{get.vars,call,ANY-method}
 \alias{get.vars,expression,missing-method}
 \alias{get.vars,formula,ANY-method}
@@ -28,6 +32,10 @@ get.vars(x, data = NULL, ...)
 \S4method{get.vars}{expression,missing}(x, data = NULL, ...)
 
 \S4method{get.vars}{name,ANY}(x, data = NULL, ...)
+
+\S4method{get.vars}{ANY,ANY}(x, data = NULL, ...)
+
+\S4method{get.vars}{`NULL`,ANY}(x, data = NULL, ...)
 
 lhs.vars(x, ...)
 

@@ -110,11 +110,20 @@ setMethod( 'get.vars', c( 'name', 'ANY' ) ,
 
 
 
-# # ---------------------------------------------------------------------
-# #' @rdname get.vars
-# #' @aliases get.vars,ANY,ANY-methods
-# setMethod( 'get.vars', c( 'ANY', 'ANY' ), 
-#   function( x, data, ... ) NULL
-# )
+# ---------------------------------------------------------------------
+#' @rdname get.vars
+#' @aliases get.vars,ANY,ANY-methods
+setMethod( 'get.vars', c( 'ANY', 'ANY' ), 
+  function( x, data, ... ) NULL
+)
+
+
+# ---------------------------------------------------------------------
+#' @rdname get.vars
+#' @aliases get.vars,NULL,ANY-methods
+setMethod( 'get.vars', c( 'NULL', 'ANY' ), 
+  function( x, data, ... ) NULL 
+)
+
 
 
