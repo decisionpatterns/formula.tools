@@ -28,7 +28,8 @@
 #' 
 #' Methods/functions beginning with \code{.} are not exported
 #' 
-#' @return character vector of variables names
+#' @return character vector of variables names in order that they appear in
+#' \code{x}.
 #' 
 #' @seealso 
 #'   \code{\link[base]{all.vars}}
@@ -114,8 +115,11 @@ setMethod( 'get.vars', c( 'name', 'ANY' ) ,
 #' @rdname get.vars
 #' @aliases get.vars,ANY,ANY-methods
 setMethod( 'get.vars', c( 'ANY', 'ANY' ), 
-  function( x, data, ... ) NULL
+  function( x, data, ... ) character(0)
 )
+
+
+
 
 
 # ---------------------------------------------------------------------

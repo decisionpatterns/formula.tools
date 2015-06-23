@@ -1,12 +1,12 @@
 Package: formula.tools
 Type: Package
 Title: Utilities for Formulas, Expressions, Calls and Other Objects
-Version: 1.5.3
-Date: 2015-06-22
+Version: 1.5.4
+Date: 2015-06-23
 Author: Christopher Brown
 Maintainer: Christopher Brown <chris.brown@decisionpatterns.com>
 Description: These utilities facilitate the programmatic manipulations of
-    formulas, expressions,calls, names, symbols and other objects.
+    formulas, expressions, calls, names, symbols and other objects.
 Depends:
     R (>= 3.0.0),
     operator.tools(>= 1.4.0),

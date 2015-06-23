@@ -71,7 +71,8 @@ wish to know what data is used based on a given formula.
 Methods/functions beginning with \code{.} are not exported}
 }
 \value{
-character vector of variables names
+character vector of variables names in order that they appear in
+\code{x}.
 }
 \description{
 \code{get.vars} extracts variable names from various R objects such as
