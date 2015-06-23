@@ -1,3 +1,7 @@
+2015-06-23 Version 1.5.4
+ - Fix issue with CRAN blocking 
+ - Expand tests for get.vars, lhs.vars, rhs.vars, lhs, rhs
+ 
 2015-06-22 Version 1.5.3
  - Fix issue #5, get.vars(NULL, NULL) throws an error ... 
    Thanks to Paul Bailey for poinint out the problem.
