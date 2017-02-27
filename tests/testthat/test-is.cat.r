@@ -3,6 +3,7 @@ library(formula.tools)
 library(magrittr)
 
 context('is.cat')
+test_that("is.cat", { 
   # TEST: is.cat
   expect_that( is.cat(letters), is_true() )           # character
   expect_that( is.cat(factor(letters)) , is_true() )  # factor
@@ -19,3 +20,4 @@ context('is.cat')
   
   expect_that( is.cont(1:10), is_true() )             # integer
   expect_that( is.cont(1:10/0.5), is_true() )         # numeric
+})

@@ -1,3 +1,6 @@
+- Ensure that magrittr operators are supported
+
+- Does catcont and invert belong somewhere else?
 
 - Create methods for append for signatures:
   - expression, expression
