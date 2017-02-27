@@ -1,3 +1,8 @@
+2017-02-26 Version 1.6.0 
+ - Improve documentation 
+ - Import stats
+ - Fix tests
+
 2015-06-23 Version 1.5.4
  - Fix issue with CRAN blocking 
  - Expand tests for get.vars, lhs.vars, rhs.vars, lhs, rhs
