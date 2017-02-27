@@ -1,8 +1,8 @@
 Package: formula.tools
 Type: Package
 Title: Utilities for Formulas, Expressions, Calls and Other Objects
-Version: 1.6.0
-Date: 2017-02-26
+Version: 1.6.1
+Date: 2017-02-27
 Author: Christopher Brown
 Maintainer: Christopher Brown <chris.brown@decisionpatterns.com>
 Description: These utilities facilitate the programmatic manipulations of

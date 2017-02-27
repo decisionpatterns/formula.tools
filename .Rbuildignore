@@ -6,3 +6,4 @@ archive
 ^.*\.Rproj$
 TODO*
 ^revdep$
+^cran-comments\.md$

@@ -1,9 +1,9 @@
 # formula.tools: Utilities for Formulas, Expressions, Calls and Other Objects
 
 
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/formula.tools)](http://cran.r-project.org/package=formula.tools)
-[![License](http://img.shields.io/badge/license-GPL%20%28%3E=%202%29-brightgreen.svg?style=flat)](http://www.gnu.org/licenses/gpl-2.0.html) 
-[![Downloads](http://cranlogs.r-pkg.org/badges/formula.tools?color=brightgreen)](http://www.r-pkg.org/pkg/formula.tools)
+[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/formula.tools)](https://cran.r-project.org/package=formula.tools)
+[![License](https://img.shields.io/badge/license-GPL%20%28%3E=%202%29-brightgreen.svg?style=flat)](https://www.gnu.org/licenses/gpl-2.0.html) 
+[![Downloads](https://cranlogs.r-pkg.org/badges/formula.tools?color=brightgreen)](https://www.r-pkg.org/pkg/formula.tools)
 
 
 The package provides for programatic access to formula, expression, calls
