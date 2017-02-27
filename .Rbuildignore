@@ -5,3 +5,4 @@ archive
 .*\.RProj.*
 ^.*\.Rproj$
 TODO*
+^revdep$

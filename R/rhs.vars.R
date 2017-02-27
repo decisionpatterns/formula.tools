@@ -5,6 +5,7 @@
 #' @rdname get.vars
 #' @aliases rhs.vars
 #' @export
+
 setGeneric( 'rhs.vars', function(x, ... ) standardGeneric( 'rhs.vars' ) )
 
 #' @rdname get.vars

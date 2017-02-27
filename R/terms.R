@@ -32,8 +32,9 @@
 #' 
 #' @aliases terms.call terms.expression terms
 #' @rdname terms
+#' @import stats
 #' @export 
-
+  
 terms.call <- function( x , ...  ) 
 {
 
