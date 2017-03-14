@@ -1,10 +1,12 @@
 Package: formula.tools
 Type: Package
 Title: Utilities for Formulas, Expressions, Calls and Other Objects
-Version: 1.6.1
-Date: 2017-02-27
-Author: Christopher Brown
-Maintainer: Christopher Brown <chris.brown@decisionpatterns.com>
+Version: 1.6.2
+Date: 2017-03-14
+Authors@R: c(
+    person("Christopher", "Brown", , "chris.brown@decisionpatterns.com", c("aut", "cre") ),
+    person("Decision Patterns", role = "cph")
+    )
 Description: These utilities facilitate the programmatic manipulations of
     formulas, expressions, calls, names, symbols and other R language objects. 
     These objects all share the same structure: a left-hand side (lhs), an 
@@ -19,14 +21,15 @@ Depends:
 Suggests:
     magrittr,
     testthat
-License: GPL (>= 2)
+License: GPL-2 | file LICENSE
 URL: https://github.com/decisionpatterns/formula.tools
 BugReports: https://github.com/decisionpatterns/formula.tools/issues
 LazyLoad: yes
 LazyData: yes
-Collate:
+Collate: 
     'as.character.formula.R'
     'catcont.R'
+    'env.R'
     'get.vars.R'
     'invert.R'
     'is.one.sided.R'
