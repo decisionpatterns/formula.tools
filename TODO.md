@@ -7,6 +7,7 @@
   - call, call
   - expression, call
   - call, expression
+  - "<-"
 
 - Do these belong in vector.tools package?
   - R/which.class
@@ -24,3 +25,12 @@
   ? test for name 
 
 - See if rhs, lhs, op, op.type are needed for other assignment operators: <<- ->
+
+- Methods of class "<-" Break CRAN checks 
+  class( quote( A <- B) ) = "<-" 
+  
+- Refactor to '_' syntax.    
+
+- Since so many of the function dispatch on single arguments, it might be 
+  worthwhile to redefine methods as S3 classes: is.one.sided; then again, it might
+  be nice to allow multiple dispatch for replacement functions.

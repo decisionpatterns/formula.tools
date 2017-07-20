@@ -19,6 +19,17 @@ test_that( "lhs", {
   lhs( ~ .  )     %>% expect_null
 })
 
+context('  lhs<-')
+test_that('lhs<-', { 
+  
+  f <- ~A
+  lhs(f) <- quote(B)
+  lhs(f) %>% expect_equal( quote(B) )
+  
+  lhs(f) <- quote(C)
+  lhs(f) %>% expect_equal(quote(C))
+})
+
 ## RHS
 context('  rhs')
 test_that( "rhs", {
@@ -31,6 +42,8 @@ test_that( "rhs", {
   rhs( . ~ a+b )  %>% expect_equivalent( expression(a+b)[[1]] )
   rhs( ~ .  )     %>% expect_equal( as.name('.') )
 })
+
+
 
 # FORMULA
 context( 'call')
@@ -59,3 +72,4 @@ test_that( "call", {
   expression( ./a + b )[[1]]  %>% rhs %>% expect_equivalent( as.name('b') )
   expression( ~ . )[[1]]      %>% rhs %>% expect_equal( as.name('.') )
 })
+

@@ -11,8 +11,6 @@ NULL
 # SINGULAR
 # -------------------------------------
 
-#' @rdname formula.parts
-#' @aliases .lhs.singular
 
 .lhs.singular <- 
   function(x) 

@@ -1,3 +1,7 @@
+2017-07-20 Version 1.6.4
+ - Fixes doc problems with '<-' methods
+ - Fixes #6
+ 
 2017-02-26 Version 1.6.0 
  - Improve documentation 
  - Import stats

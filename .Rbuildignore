@@ -7,3 +7,5 @@ archive
 TODO*
 ^revdep$
 ^cran-comments\.md$
+^\*.bak$
+

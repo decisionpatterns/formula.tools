@@ -14,11 +14,18 @@ setGeneric( 'lhs<-', function( x, value ) standardGeneric('lhs<-') )
 # SINGLULAR: call, formula
 # -------------------------------------
 
-#' @rdname formula.parts
-#' @aliases .replace.lhs.singular
+# @rdname formula.parts
+# @aliases .replace.lhs.singular
 
 .replace.lhs.singular <-  function( x, value ) {
-  x[[2]] <- value 
+
+  if( is.two.sided(x) ) {
+    x[[2]] <- value 
+  } else {  
+    x[[3]] <- x[[2]]
+    x[[2]] <- value
+  } 
+  
   x 
 }
 
