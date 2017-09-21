@@ -4,6 +4,7 @@
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/formula.tools)](https://cran.r-project.org/package=formula.tools)
 [![License](https://img.shields.io/badge/license-GPL%20%28%3E=%202%29-brightgreen.svg?style=flat)](https://www.gnu.org/licenses/gpl-2.0.html) 
 [![Downloads](https://cranlogs.r-pkg.org/badges/formula.tools?color=brightgreen)](https://www.r-pkg.org/pkg/formula.tools)
+[![](http://cranlogs.r-pkg.org/badges/grand-total/formula.tools)](http://cran.rstudio.com/web/packages/formula.tools/index.html)
 
 **Programatic Utilities for Formulas, Expressions, Calls, Assignments and Other R Objects**
 
