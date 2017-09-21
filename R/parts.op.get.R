@@ -39,8 +39,16 @@ setMethod( 'op', 'expression',
 #' @aliases op,list-method
 setMethod( 'op', 'list', function(x) lapply(x,op) )
 
-
+# **Note:** 
+# This is not a replacement method, but rather a method that dispatches on the 
+# non-standard class '<-'. roxygen2 produces the following documentation:
+#
+#      @usage \S4method{lhs}{`<-`}(x). 
+#
+# But this fails for the non-standard class `<-`, so documentation is omitted.
+#
 #' @rdname formula.parts
 #' @aliases op,<--method
+
 setMethod( 'op', '<-', function(x) x[[1]] ) 
 

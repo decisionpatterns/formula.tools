@@ -33,15 +33,29 @@ setGeneric( 'lhs<-', function( x, value ) standardGeneric('lhs<-') )
 #' @rdname formula.parts
 #' @name lhs<-
 #' @aliases lhs<-,call-method
+
 setReplaceMethod( 'lhs', 'call', .replace.lhs.singular )
 
 
 #' @name lhs<-
 #' @rdname formula.parts
 #' @aliases lhs<-,formula-method
+
 setReplaceMethod( 'lhs', 'formula' , .replace.lhs.singular )
 
 
+# **Note:** 
+# This is not a replacement method, but rather a method that dispatches on the 
+# non-standard class '<-'. roxygen2 produces the following documentation:
+#
+#      @usage \S4method{lhs}{`<-`}(x). 
+#
+# But this fails for the non-standard class `<-`, so documentation is omitted.
+#
+#
+#' @rdname formula.parts
+#' @aliases `lhs<-`,<--method
+setReplaceMethod( 'lhs', '<-', .replace.lhs.singular )
 
 
 # -------------------------------------
@@ -84,7 +98,9 @@ setReplaceMethod( 'lhs', 'formula' , .replace.lhs.singular )
 #' @name lhs<-  
 #' @rdname formula.parts 
 #' @aliases lhs<-,expression-method
+
 setReplaceMethod( 'lhs', c('expression','ANY') , .replace.lhs.plural )
+
 
 #' @name lhs<-
 #' @rdname formula.parts

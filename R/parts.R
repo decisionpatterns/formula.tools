@@ -10,6 +10,8 @@
 #' @param value the value to set for the lhs/rhs
 #' @param ... arguments passed to additional methods
 #' 
+#' @details 
+#' 
 #' \code{lhs} retrieves the left-hand side 
 #' \code{rhs} retrieves the right-hand side 
 #' \code{op}  retrieves the operation 
@@ -34,6 +36,11 @@
 #' the lhs and rhs, respectively.  If special formula variables are used, such 
 #' as '.', a data.frame or environment must also be provided such that the 
 #' variable list may be properly infered.
+#' 
+#' @note 
+#' Methods for the non-standard "\code{<-}" class exist and are not included in 
+#' the usage documentation because CRAN does not support S4 documentation for 
+#' this class.
 #' 
 #' @return Value depends on the argument.
 #' 

@@ -33,8 +33,16 @@ setMethod( 'op.type', 'call' , function(x) operator.type( (op(x) )  ) )
 #' @aliases op.type,formula-method
 setMethod( 'op.type', 'formula' , function(x) operator.type( op(x) ) )
 
+# **Note:** 
+# This is not a replacement method, but rather a method that dispatches on the 
+# non-standard class '<-'. roxygen2 produces the following documentation:
+#
+#      @usage \S4method{lhs}{`<-`}(x). 
+#
+# But this fails for the non-standard class `<-`, so documentation is omitted.
+#
 #' @rdname op.type
-#' @aliases op.type,`<-`-method
+#' @aliases op.type,<--method
 setMethod( 'op.type', '<-', function(x) operator.type( op(x) ) ) 
 
 #' @rdname op.type

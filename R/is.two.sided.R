@@ -16,16 +16,34 @@
 setGeneric( 'is.two.sided', function(x,...) standardGeneric( 'is.two.sided' ) )
 
 
+# @rdname is.one.sided 
+#' @export 
+
+is.double.sided <- is.two.sided 
+
+# @rdname is.one.sided 
+#' @export 
+
+is.binary <- is.two.sided
+
+
+
 #' @rdname is.one.sided
 # @aliases is.two.sided,formula-method
+
 setMethod( 'is.two.sided', 'formula', .is.two.sided )
 
 #' @rdname is.one.sided
 # @aliases is.two.sided,call-method
 setMethod( 'is.two.sided', 'call', .is.two.sided )
 
+# Note: This is not a replacement method, but rather a method that
+# dispatches on the non-standard class '<-'
+# @usage \S4method{lhs}{`<-`}(x). 
+# This appears to fail CRAN checks an is therefore not documented
+#
 #' @rdname is.one.sided
-# @aliases is.two.sided,<--method
+#' @aliases is.two.sided,<--method
 setMethod( 'is.two.sided', '<-', .is.two.sided )
 
 

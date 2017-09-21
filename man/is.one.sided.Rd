@@ -16,10 +16,10 @@
 \alias{is.two.sided,expression-method}
 \alias{is.two.sided,list-method}
 \alias{is.two.sided,ANY-method}
-\title{Determine if an object is one- or two- sided.
+\title{Determine if an object is one- or two-sided.
  
-Test whether a object (typically formula, call or expression) is one-, e.g. 
-\code{ ~ RHS } or two-sided, e.g. \code{LHS = RHS}}
+Test whether a object (typically formula, call or expression) is one- (e.g. 
+\code{~x}) or two-sided (e.g. \code{x~y}).}
 \usage{
 is.one.sided(x, ...)
 
@@ -52,17 +52,39 @@ is.two.sided(x, ...)
 \arguments{
 \item{x}{object to test for one-sidedness.}
 
-\item{...}{arguments passed to called functions
-
-\code{.is.one.sided} and \code{.is.one.sided.plural} are not exported and 
-should not be relied upon. This may change in the near future.}
+\item{...}{arguments passed to called functions}
 }
 \value{
-logical; whether \code{x} is one sided or
+logical; whether \code{x} is an object is one-sided or two-sided formula.
 }
 \description{
-Determine if an object is one- or two- sided.
+Determine if an object is one- or two-sided.
  
-Test whether a object (typically formula, call or expression) is one-, e.g. 
-\code{ ~ RHS } or two-sided, e.g. \code{LHS = RHS}
+Test whether a object (typically formula, call or expression) is one- (e.g. 
+\code{~x}) or two-sided (e.g. \code{x~y}).
+}
+\details{
+These functions detect whether the formula is single- (unary) or double-
+sided. They work on formulas, expression, calls, assignments, etc.
+
+\code{is.single.sided} and \code{is.unary} are alias for 
+\code{is.single.sided}. \code{is.double.sided} and \code{is.binary} are 
+aliases for \code{is.two.sided}.
+}
+\note{
+Methods for the "\code{<-}" class exist and are not included in the usage 
+documentation because CRAN does not support S4 documentation for this class.
+}
+\examples{
+
+form <- y ~ x 
+
+is.one.sided(form)
+# is.single.sided(form)
+# is.unary(form) 
+
+is.two.sided(form)
+# is.double.sided(form)
+# is.binary(form)
+                
 }

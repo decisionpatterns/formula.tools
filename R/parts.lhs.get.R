@@ -39,12 +39,18 @@ setMethod( 'lhs', 'call', .lhs.singular )
 #' @aliases lhs,formula-method
 setMethod( 'lhs', 'formula', .lhs.singular )  
 
-# Note: This is not a replacement method, but rather a method that
-# dispatches on the non-standard class '<-'
-# @usage \S4method{lhs}{`<-`}(x)
 
+# **Note:** 
+# This is not a replacement method, but rather a method that dispatches on the 
+# non-standard class '<-'. roxygen2 produces the following documentation:
+#
+#      @usage \S4method{lhs}{`<-`}(x). 
+#
+# But this fails for the non-standard class `<-`, so documentation is omitted.
+#
 #' @rdname formula.parts
 #' @aliases lhs,<--method
+
 setMethod( 'lhs', '<-', function(x) x[[2]] )
 
 
