@@ -9,3 +9,5 @@ TODO*
 ^cran-comments\.md$
 ^\*.bak$
 
+^debug$
+formula.tools_*.tar.gz

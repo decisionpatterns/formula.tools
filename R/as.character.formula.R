@@ -21,6 +21,7 @@
 #' ## The function is currently defined as
 #' function(x)
 #'   Reduce( paste, deparse(x) )
+#'   
 #' @export
 
 as.character.formula <- function(x, ...) { 

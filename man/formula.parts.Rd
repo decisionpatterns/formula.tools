@@ -4,7 +4,6 @@
 \docType{methods}
 \name{formula.parts}
 \alias{formula.parts}
-\alias{.lhs.singular}
 \alias{lhs}
 \alias{lhs,call-method}
 \alias{lhs,formula-method}
@@ -12,7 +11,6 @@
 \alias{lhs,expression-method}
 \alias{lhs,list-method}
 \alias{lhs<-}
-\alias{.replace.lhs.singular}
 \alias{lhs<-}
 \alias{lhs<-,call-method}
 \alias{lhs<-}
@@ -61,8 +59,6 @@
 \title{Manipulate the component parts of formulas, expressions, calls, name/symbols 
 and list and vectors of such objects.}
 \usage{
-.lhs.singular(x)
-
 lhs(x, ...)
 
 \S4method{lhs}{call}(x)
@@ -76,8 +72,6 @@ lhs(x, ...)
 \S4method{lhs}{list}(x, ...)
 
 lhs(x) <- value
-
-.replace.lhs.singular(x, value)
 
 \S4method{lhs}{call}(x) <- value
 

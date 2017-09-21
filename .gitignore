@@ -3,4 +3,5 @@
 .RData
 *.Rcheck 
 *.bak
-
+formula.tools_*.tar.gz
+revdep

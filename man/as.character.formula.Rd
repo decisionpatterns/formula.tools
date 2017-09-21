@@ -28,6 +28,7 @@ Coerces formula to a character by deparsing.
 ## The function is currently defined as
 function(x)
   Reduce( paste, deparse(x) )
+  
 }
 \seealso{
 \code{\link[base]{deparse}}
