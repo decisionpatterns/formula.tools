@@ -69,7 +69,7 @@ lhs(x, ...)
 
 \S4method{lhs}{formula}(x)
 
-\S4method{lhs}{`<-`}(x)
+
 
 \S4method{lhs}{expression}(x, ...)
 
@@ -101,7 +101,7 @@ op(x)
 
 \S4method{op}{list}(x)
 
-\S4method{op}{`<-`}(x)
+
 
 op(x) <- value
 
@@ -125,7 +125,7 @@ rhs(x, ...)
 
 \S4method{rhs}{formula}(x)
 
-\S4method{rhs}{`<-`}(x)
+
 
 \S4method{rhs}{expression}(x, ...)
 

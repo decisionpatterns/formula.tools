@@ -1,4 +1,8 @@
 
+# 2017-09-21 Version 1.6.8
+ - Fix issue with Rd files causing a rejection by CRAN 
+ - Update docs, README.md
+
 # 2017-07-20 Version 1.6.4
  - Fixes doc problems with '<-' methods
  - Fixes #6
