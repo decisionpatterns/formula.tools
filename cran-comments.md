@@ -1,3 +1,22 @@
+## Version 1.7.0
+
+### check_man() 
+
+check_man() reports:
+ 
+     Objects in \usage without \alias in documentation object 'formula.parts':
+      ‘\S4method{lhs}{<-}<-’ ‘\S4method{op}{<-}<-’ ‘\S4method{rhs}{<-}<-’
+
+This is a known problem with the checker as these aliases are in the documentation
+for `formula.parts`:
+
+   \alias{lhs<-,<--method}
+   \alias{rhs<-,<--method}
+   \alias{op<-,<--method}
+   
+### Reverse Dependency check performed no errors reported   
+   
+
 ## Summary
 
 * Fixed:

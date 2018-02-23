@@ -30,7 +30,6 @@ LazyLoad: yes
 LazyData: yes
 Collate: 
     'as.character.formula.R'
-    'catcont.R'
     'env.R'
     'get.vars.R'
     'invert.R'
