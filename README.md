@@ -27,7 +27,8 @@ It is easiest to understand through the [#Examples].
     devtools::install_github("decisionpatterns/formula.tools")
     
     
-## Important Functions 
+    
+## Overview
 
 ### Manipulate parts of a formula/expression/call/assignment:
 
