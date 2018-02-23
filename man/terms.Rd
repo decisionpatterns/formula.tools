@@ -4,7 +4,6 @@
 \alias{terms.call}
 \alias{terms.expression}
 \alias{terms}
-\alias{terms.expression}
 \title{terms}
 \usage{
 \method{terms}{call}(x, ...)

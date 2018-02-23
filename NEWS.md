@@ -1,3 +1,6 @@
+# 2018-02-22 Version 1.7.0 
+ - Add split.terms function
+ - Add toggle.sign method
 
 # 2017-09-21 Version 1.6.8
  - Fix issue with Rd files causing a rejection by CRAN 

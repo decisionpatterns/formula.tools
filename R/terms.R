@@ -20,7 +20,9 @@
 #' 
 #' @author Christopher Brown
 #' 
-#' @seealso \code{\link{terms.object}} and \code{\link{terms.formula}}
+#' @seealso 
+#'   * [stats::terms.object()] 
+#'   * [stats::terms.formula()] 
 #' 
 #' @keywords manip symbolmath utilities
 #' @examples
@@ -33,6 +35,7 @@
 #' @aliases terms.call terms.expression terms
 #' @rdname terms
 #' @import stats
+#' @md
 #' @export 
   
 terms.call <- function( x , ...  ) 
@@ -42,8 +45,8 @@ terms.call <- function( x , ...  )
   { 
     all.vars(x) 
   } else {  
-    form <- formula( paste( '~', as.expression( x ) ) )
-    terms( form, ... )
+    form <- stats::formula( paste( '~', as.expression( x ) ) )
+    stats::terms( form, ... )
   }
 
 }
