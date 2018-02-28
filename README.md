@@ -34,29 +34,29 @@ It is easiest to understand through the [#Examples].
 
 ### Manipulate parts of a formula/expression/call/assignment:
 
- - **lhs**: get/set the left-hand side of an object
- - **rhs**: get/set the right-hand side of an object
- - **op**: get/set the operator of an object
+ - **`lhs`**: get/set the left-hand side of an object
+ - **`rhs`**: get/set the right-hand side of an object
+ - **`op`**: get/set the operator of an object
  
 
 ### Get variables (names) in a formula/expression/call/assignment: 
 
- - **get.vars**: like `base::all.vars` except all symbols (e.g. `.`) can be
+ - **`get.vars`**: like `base::all.vars` except all symbols (e.g. `.`) can be
    interpolated from data, so that things like `y ~ .` can return the correct 
    values.
-   - **lhs.vars**: `get.vars` on lhs of the object 
-   - **rhs.vars**: `get.vars` on rhs of the object
+   - **`lhs.vars`**: `get.vars` on lhs of the object 
+   - **`rhs.vars`**: `get.vars` on rhs of the object
    
    
 ### Get terms from formula or expression:
 
- - **split_terms**: split (mathematical) terms into an expression vector without
+ - **`terms`**: get the terms from an object by interpolating special symbols 
+       (e.g. `.`) using a data set data.  Extends `stats::terms()` 
+       
+ - **`split_terms`**: split (mathematical) terms into an expression vector without
    interpolating special symbols (e.g. `.`)
 
- - **terms**: get the terms from an object by interpolating special symbols 
-       (e.g. `.`) using a data set data.  Extends `stats::terms()`  
-  
-
+ 
 ## Examples 
 
 Formula terms and operators can be accessed or changed. 
