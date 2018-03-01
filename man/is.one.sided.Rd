@@ -27,7 +27,7 @@ is.one.sided(x, ...)
 
 \S4method{is.one.sided}{call}(x, ...)
 
-\S4method{is.one.sided}{`<-`}(x, ...)
+
 
 \S4method{is.one.sided}{expression}(x, ...)
 
@@ -41,7 +41,7 @@ is.two.sided(x, ...)
 
 \S4method{is.two.sided}{call}(x, ...)
 
-\S4method{is.two.sided}{`<-`}(x, ...)
+
 
 \S4method{is.two.sided}{expression}(x, ...)
 
