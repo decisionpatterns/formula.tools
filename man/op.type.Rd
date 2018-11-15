@@ -18,7 +18,7 @@ op.type(x)
 
 \S4method{op.type}{formula}(x)
 
-
+\S4method{op.type}{`<-`}(x)
 
 \S4method{op.type}{ANY}(x)
 

@@ -29,6 +29,7 @@ BugReports: https://github.com/decisionpatterns/formula.tools/issues
 LazyLoad: yes
 LazyData: yes
 Collate: 
+    'add_term.R'
     'as.character.formula.R'
     'env.R'
     'get.vars.R'
@@ -45,10 +46,11 @@ Collate:
     'parts.rhs.get.R'
     'parts.rhs.set.R'
     'rhs.vars.R'
-    'split.terms.R'
+    'split_terms.R'
     'terms.R'
-    'toggle.sign.R'
+    'toggle_sign.R'
+    'utils.R'
     'zzz.R'
-RoxygenNote: 6.0.1.9000
+RoxygenNote: 6.1.1
 Repository: CRAN
 Encoding: UTF-8

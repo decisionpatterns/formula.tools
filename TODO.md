@@ -1,8 +1,15 @@
+# TODO.md 
+
+- [ ] Refactor to '_' syntax.    
+
 - Ensure that magrittr operators are supported
 
-- Does catcont and invert belong somewhere else?
-
-- Create methods for append for signatures:
+- Does [x] catcont and [ ] invert belong somewhere else?
+  - Should invert be called `flip` or `flip_op` and be part of the 
+    operator.tools package
+  
+- [x] Create add_term
+- Create methods for `append` for signatures:
   - expression, expression
   - call, call
   - expression, call
@@ -29,8 +36,8 @@
 - Methods of class "<-" Break CRAN checks 
   class( quote( A <- B) ) = "<-" 
   
-- [ ] Refactor to '_' syntax.    
-
 - Since so many of the function dispatch on single arguments, it might be 
-  worthwhile to redefine methods as S3 classes: is.one.sided; then again, it might
+  worthwhile to redefine methods as S3 classes: `is.one.sided`; then again, it might
   be nice to allow multiple dispatch for replacement functions.
+  
+  

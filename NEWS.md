@@ -1,6 +1,12 @@
+# 
+
+ - Add `add_term()` function
+ - Change `toggle.sign()` -> `toggle_sign()`
+
 # 2018-02-22 Version 1.7.0 
- - Add split_terms function
- - Add toggle.sign method
+
+ - Add `split_terms()` function
+ - Add `toggle.sign()` method
  - `catcont` functions removed.  Use the **catcont** package instead. 
 
 # 2017-09-21 Version 1.6.8
