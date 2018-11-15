@@ -1,5 +1,7 @@
 # TODO.md 
 
+- [ ] Refactor `rhs.vars()` and `lhs.vars()` to be more similar.
+
 - [ ] Refactor to '_' syntax.    
 
 - Ensure that magrittr operators are supported

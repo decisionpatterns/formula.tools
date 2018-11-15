@@ -1,6 +1,6 @@
 #' terms
 #' 
-#' terms method for call and expression objects
+#' terms method for *call* and *expression* objects
 #'
 #' @param x A call object
 #' @param ...  Arguments passed to \code{\link{terms.formula}}
