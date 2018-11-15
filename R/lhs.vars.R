@@ -10,8 +10,8 @@ setGeneric( 'lhs.vars', function(x, ... ) standardGeneric( 'lhs.vars' ) )
 
 #' @rdname get.vars
 #' @aliases .lhs.vars 
-.lhs.vars <- function(x, ..., data=NULL) 
-{
+.lhs.vars <- function(x, ..., data=NULL) {
+  
   if( 
       class( x[[1]] )   == 'name' &&
       deparse( x[[1]] ) %in% operators() 

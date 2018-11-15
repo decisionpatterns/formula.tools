@@ -79,7 +79,7 @@ split_terms.call <- function(x, recursive=FALSE) {
 
   if( length(x)==2 & as.character(x[[1]]) %in% c('+','-') ) { 
     e <- split_terms( x[[2]], recursive = recursive )
-    if( op(x) == '-' ) e <- toggle.sign(e)
+    if( op(x) == '-' ) e <- toggle_sign(e)
     return(e)
   }  
   
@@ -94,12 +94,12 @@ split_terms.call <- function(x, recursive=FALSE) {
     ) {
       
       e <- split_terms( x[[i]][[2]], recursive = recursive )
-      if( x[[1]] == '-' ) e <- toggle.sign(e)
+      if( x[[1]] == '-' ) e <- toggle_sign(e)
       expr <- append( expr,  e ) 
 
     } else { 
       e <- x[[i]] 
-      if( i==3 && op(x) == '-' ) e <- toggle.sign(e)
+      if( i==3 && op(x) == '-' ) e <- toggle_sign(e)
       if( recursive==TRUE || x[[i]] != '(')  e <- split_terms(e, recursive = recursive) 
       expr <- append( expr, e )
     }

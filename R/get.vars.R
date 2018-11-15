@@ -62,9 +62,8 @@ setGeneric(
 setMethod( 'get.vars', c( 'formula', 'ANY' ) ,
   # get.vars.form <- 
   function(x, data=NULL, ... ) {
-    
-    vars.lhs <- get.vars( lhs(x), data=data, ... )
 
+    vars.lhs <- get.vars( lhs(x), data=data, ... )
     term.rhs <- terms.formula( x, data=data, ... )
     labels   <- attr( term.rhs, 'term.labels' )
     order    <- attr( term.rhs, 'order' )
@@ -86,6 +85,10 @@ setMethod( 'get.vars', c( 'call', 'ANY' ),
   function( x, data=NULL, ... ) {
 
     term <- terms( x, data=data, ... )
+    
+    # #10 
+    if( is(term, 'terms') ) term <- base::all.vars(term) 
+    
     return(term)
   
   }
@@ -106,7 +109,9 @@ setMethod( 'get.vars', c( 'expression', 'missing' ) ,
 #' @aliases get.vars,name,ANY-method
 
 setMethod( 'get.vars', c( 'name', 'ANY' ) ,
-  function( x, data, ... ) as.character(x) 
+  function( x, data, ... ) { 
+    as.character(x) 
+  }
 )
 
 
@@ -128,6 +133,3 @@ setMethod( 'get.vars', c( 'ANY', 'ANY' ),
 setMethod( 'get.vars', c( 'NULL', 'ANY' ), 
   function( x, data, ... ) NULL 
 )
-
-
-

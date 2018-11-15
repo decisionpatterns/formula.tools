@@ -18,7 +18,7 @@ setGeneric( 'rhs.vars', function(x, ... ) standardGeneric( 'rhs.vars' ) )
         deparse( x[[1]] ) %in% operators()  
     ) {
   
-      term.rhs <- terms( x, data=data, ... ) 
+      term.rhs <- terms( x, data=data, special=NULL, ... ) 
       labels   <- attr( term.rhs, 'term.labels' )
       order    <- attr( term.rhs, 'order' )
       vars.rhs <- labels[ order == 1 ]

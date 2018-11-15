@@ -38,17 +38,16 @@
 #' @md
 #' @export 
   
-terms.call <- function( x , ...  ) 
-{
+terms.call <- function( x , ...  ) {
 
-  if( deparse( x[[1]] ) %in% c( operators() ) ) 
-  { 
-    all.vars(x) 
+  if( deparse( x[[1]] ) %in% c( operators() ) ) { 
+    ret <- all.vars(x) 
   } else {  
     form <- stats::formula( paste( '~', as.expression( x ) ) )
-    stats::terms( form, ... )
+    ret <- stats::terms.formula( form, specials=NULL, ... )
   }
 
+  ret
 }
    
 #' @rdname terms
