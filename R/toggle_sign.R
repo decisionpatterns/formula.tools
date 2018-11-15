@@ -4,34 +4,35 @@
 #' 
 #' @details 
 #' 
-#' `toggle.sign` changes the sign of an expression for `+` tp `-` and 
+#' `toggle_sign` changes the sign of an expression for `+` tp `-` and 
 #' visa-versa.
 #' 
 #' @examples 
 #' 
-#'   toggle.sign(1:3)
-#'   toggle.sign( quote(a) )
-#'   toggle.sign( quote(-a) )
+#'   toggle_sign(1:3)
+#'   toggle_sign( quote(a) )
+#'   toggle_sign( quote(-a) )
 #'   
 #'   exp <- expression( a, -b, -(a-b) )
-#'   toggle.sign(exp)
+#'   toggle_sign(exp)
 #'   
 #' @export   
 
-toggle.sign <- function(x) UseMethod('toggle.sign')
+
+toggle_sign <- function(x) UseMethod("toggle_sign")
        
 #' @export                  
-toggle.sign.default <- function(x) -x                                               
+toggle_sign.default <- function(x) -x                                               
 
 
 #' @export 
-`toggle.sign.(` <- function(x) 
-    toggle.sign( x[[2]] )
+`toggle_sign.(` <- function(x) 
+    toggle_sign( x[[2]] )
   
 
 
 #' @export     
-toggle.sign.call <- function(x) {
+toggle_sign.call <- function(x) {
   elem.deparsed <- deparse(x)
   if( substr(elem.deparsed, 1,1 ) == "-" ) 
       substr( elem.deparsed, 1,1) <- " " else 
@@ -41,7 +42,7 @@ toggle.sign.call <- function(x) {
 }
 
 #' @export     
-toggle.sign.name <- function(x) {
+toggle_sign.name <- function(x) {
   elem.deparsed <- deparse(x)
   if( substr(elem.deparsed, 1,1 ) == "-" ) 
       substr( elem.deparsed, 1,1) <- " " else 
@@ -53,7 +54,7 @@ toggle.sign.name <- function(x) {
 
 
 #' @export   
-toggle.sign.expression <- function(x) { 
+toggle_sign.expression <- function(x) { 
 
   for( i in 1:length(x) )  {
     
@@ -71,3 +72,12 @@ toggle.sign.expression <- function(x) {
  x  
  
 }
+
+toggle.sign <- function(x) { 
+  .Deprecated('toggle_sign', 'formula.tools'
+    , "`toggle.sign()` is deprecated. Use `toggle_sign()` instead."
+  )
+ 
+  toggle_sign(x) 
+}
+ 
